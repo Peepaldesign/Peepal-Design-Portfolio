@@ -99,8 +99,8 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
-    tags: ["Ticketing", "Events UX", "Mobile"],
-    prototypeUrl: dummyProto
+    tags: ["Ticketing", "Events", "User Flow"],
+    prototypeUrl: "https://embed.figma.com/proto/AZVar7CMaQ8X1WsXBMZpx4/02_AXS?node-id=1172-2069&p=f&scaling=contain&content-scaling=fixed&page-id=1172%3A730&embed-host=share"
   },
   {
     id: "10",
