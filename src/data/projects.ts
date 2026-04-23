@@ -40,7 +40,7 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["Medical UI", "Endoscopy", "Standardization"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=816-28881&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A13&starting-point-node-id=816%3A28463&embed-host=share"
   },
   {
     id: "4",
