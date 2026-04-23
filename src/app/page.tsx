@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import ServicesSection from "@/components/ServicesSection";
 import WorkSection from "@/components/WorkSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -105,7 +104,6 @@ export default function Home() {
 
       {/* Main Content */}
       <div>
-        <ServicesSection />
         <WorkSection />
         <ContactSection />
         <Footer />
