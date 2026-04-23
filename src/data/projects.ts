@@ -46,7 +46,7 @@ export const projects: Project[] = [
     id: "4",
     title: "Biorad Quantino",
     description: "Designing a high-precision diagnostic interface for laboratory workflows, built to minimize error and maximize throughput.",
-    image: "https://images.unsplash.com/photo-1579152276503-31581d966b61?q=80&w=2070&auto=format&fit=crop",
+    image: "/projects/quantino_hero.png",
     category: "Healthcare",
     size: "large",
     tags: ["Lab Diagnostics", "Healthcare UX", "Workflow"],
