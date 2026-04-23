@@ -121,5 +121,35 @@ export const projects: Project[] = [
     size: "small",
     tags: ["EdTech", "LMS", "Adaptive Learning"],
     prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share"
+  },
+  {
+    id: "12",
+    title: "Mera Bajaj / Connect",
+    description: "A comprehensive mobile ecosystem for Bajaj owners, integrating vehicle health, service tracking, and connected riding features.",
+    image: "/projects/mera_bajaj.png",
+    category: "Automotive",
+    size: "small",
+    tags: ["Mobile UX", "Automotive", "Connected Tech"],
+    prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share"
+  },
+  {
+    id: "13",
+    title: "MP Risk",
+    description: "Enterprise-grade risk management platform for financial institutions, featuring complex data visualization and predictive analytics.",
+    image: "/projects/mp_risk.png",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["Fintech", "Risk Management", "Dashboard"],
+    prototypeUrl: "https://embed.figma.com/proto/COkQHDwxbtpe5ngu591eEc/02_MP-Risk_Cycle-1?node-id=5004-7247&viewport=1265%2C-1827%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=5004%3A7247&page-id=5004%3A4560&embed-host=share"
+  },
+  {
+    id: "14",
+    title: "ARMMAN",
+    description: "Tech-driven healthcare intervention for maternal and child health, designed to empower rural communities with life-saving information.",
+    image: "/projects/armman.png",
+    category: "Healthcare",
+    size: "small",
+    tags: ["Social Impact", "Healthcare", "Mobile UI"],
+    prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share"
   }
 ];
