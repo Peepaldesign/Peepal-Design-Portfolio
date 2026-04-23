@@ -63,8 +63,7 @@ export default function Navbar() {
         <div style={{ display: "none", gap: "2.5rem", alignItems: "center" }} className="md-flex">
           {[
             { name: "Home", id: "home" },
-            { name: "Work", id: "work" },
-            { name: "Contact", id: "contact" }
+            { name: "Work", id: "work" }
           ].map((item) => (
             <a 
               key={item.name} 
@@ -119,7 +118,7 @@ export default function Navbar() {
             className="md-none"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              {["Home", "Work", "Contact"].map((item) => (
+              {["Home", "Work"].map((item) => (
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase()}`} 
