@@ -16,7 +16,7 @@ export const projects: Project[] = [
     id: "1",
     title: "Bajaj Chetak",
     description: "Reimagining the legendary Chetak as a premium electric vehicle, focusing on a connected mobile ecosystem and intuitive riding controls.",
-    image: "https://images.financialexpress.com/2024/01/Bajaj-Chetak-Premium-2024-review-1.jpg",
+    image: "https://images.hindustantimes.com/auto/img/2024/01/05/1600x900/2024_Bajaj_Chetak_Premium_1704439049755_1704439058778.JPG",
     category: "Automotive",
     size: "large",
     tags: ["EV App", "Mobile UX", "IoT"],
