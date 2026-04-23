@@ -70,7 +70,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Hospitality", "Enterprise SaaS", "B2B"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/0madtudLOJvYCwpY5wuA2J/11_MI-Blogs-studio-v1.0?node-id=2208-14341&viewport=165%2C-5262%2C0.15&scaling=contain&content-scaling=fixed&starting-point-node-id=2208%3A14341&page-id=2208%3A6565&embed-host=share"
   },
   {
     id: "7",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Fintech", "Retail POS", "Smart Display"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/MZDTpQB2cMfeqPvyTI5V5X/EIL2_04_TPV-PPDS-Dev-Delivery_Ext?node-id=3819-23020&viewport=644%2C1370%2C0.18&scaling=contain&content-scaling=fixed&starting-point-node-id=3819%3A23020&page-id=3252%3A7577&embed-host=share"
   },
   {
     id: "8",
