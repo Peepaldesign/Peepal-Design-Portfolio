@@ -63,12 +63,14 @@ export default function WorkSection() {
       {/* Bento Grid Layout */}
       <motion.div 
         layout
-        className="projects-grid"
         style={{ 
           display: "grid", 
-          gridAutoFlow: "dense",
+          gridTemplateColumns: filter === 'All' 
+            ? "repeat(auto-fill, minmax(300px, 1fr))" 
+            : "repeat(1, 1fr)", // Mobile default
           gap: "1.5rem" 
         }}
+        className={filter !== 'All' ? "category-grid" : ""}
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
@@ -80,26 +82,26 @@ export default function WorkSection() {
             />
           ))}
         </AnimatePresence>
-      </motion.div>
 
-      <style jsx>{`
-        .projects-grid {
-          grid-template-columns: repeat(1, 1fr);
-          grid-auto-rows: minmax(300px, auto);
-        }
-        @media (min-width: 768px) {
-          .projects-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 300px;
+        <style jsx>{`
+          @media (min-width: 768px) {
+            div {
+              grid-template-columns: ${filter === 'All' ? 'repeat(auto-fill, minmax(300px, 1fr))' : 'repeat(2, 1fr)'} !important;
+              grid-auto-rows: 300px;
+            }
           }
-        }
-        @media (min-width: 1024px) {
-          .projects-grid {
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 300px;
+          @media (min-width: 1024px) {
+            div {
+              grid-template-columns: ${filter === 'All' ? 'repeat(auto-fill, minmax(300px, 1fr))' : 'repeat(3, 1fr)'} !important;
+            }
           }
-        }
-      `}</style>
+          
+          /* Ensure uniform height for category grid */
+          .category-grid > div {
+            height: 350px !important;
+          }
+        `}</style>
+      </motion.div>
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>

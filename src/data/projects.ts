@@ -12,7 +12,6 @@ export interface Project {
 const dummyProto = "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=844-27066&p=f&viewport=-145%2C1210%2C0.02&scaling=contain&content-scaling=fixed&starting-point-node-id=816%3A28881&show-proto-sidebar=1&page-id=1%3A13&embed-host=share";
 
 export const projects: Project[] = [
-  // Group 1: Large on Left
   {
     id: "1",
     title: "Bajaj Chetak",
@@ -43,18 +42,6 @@ export const projects: Project[] = [
     tags: ["Medical UI", "Endoscopy", "Standardization"],
     prototypeUrl: "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=816-28881&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A13&starting-point-node-id=816%3A28463&embed-host=share"
   },
-  
-  // Group 2: Large on Right
-  {
-    id: "13",
-    title: "MP Risk",
-    description: "Enterprise-grade risk management platform for financial institutions, featuring complex data visualization and predictive analytics.",
-    image: "/projects/mp_risk.png",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Fintech", "Risk Management", "Dashboard"],
-    prototypeUrl: "https://embed.figma.com/proto/COkQHDwxbtpe5ngu591eEc/02_MP-Risk_Cycle-1?node-id=5004-7247&viewport=1265%2C-1827%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=5004%3A7247&page-id=5004%3A4560&embed-host=share"
-  },
   {
     id: "4",
     title: "Biorad Quantino",
@@ -74,18 +61,6 @@ export const projects: Project[] = [
     size: "small",
     tags: ["Agri-Tech", "IoT Data", "POC"],
     prototypeUrl: "https://embed.figma.com/proto/Vr2wQGD6AT3JDjfx2l3ATq/01_Arable-POC-v1?node-id=107-1133&p=f&viewport=761%2C-635%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=107%3A1133&page-id=35%3A4&embed-host=share"
-  },
-
-  // Group 3: Large on Left
-  {
-    id: "12",
-    title: "Mera Bajaj / Connect",
-    description: "A comprehensive mobile ecosystem for Bajaj owners, integrating vehicle health, service tracking, and connected riding features.",
-    image: "/projects/mera_bajaj.png",
-    category: "Automotive",
-    size: "large",
-    tags: ["Mobile UX", "Automotive", "Connected Tech"],
-    prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share"
   },
   {
     id: "6",
@@ -107,8 +82,6 @@ export const projects: Project[] = [
     tags: ["Fintech", "Retail POS", "Smart Display"],
     prototypeUrl: "https://embed.figma.com/proto/MZDTpQB2cMfeqPvyTI5V5X/EIL2_04_TPV-PPDS-Dev-Delivery_Ext?node-id=3819-23020&viewport=644%2C1370%2C0.18&scaling=contain&content-scaling=fixed&starting-point-node-id=3819%3A23020&page-id=3252%3A7577&embed-host=share"
   },
-
-  // Group 4: Large on Right
   {
     id: "8",
     title: "Rem42",
@@ -118,16 +91,6 @@ export const projects: Project[] = [
     size: "small",
     tags: ["AI Coaching", "Wellness App", "Biometrics"],
     prototypeUrl: "https://embed.figma.com/proto/zmJWr1VnmSy1nnOproWfgn/03---00-_-ZHEAL-1.0-and-REM42-v1.0--Prototypes-?node-id=2346-35003&p=f&scaling=contain&content-scaling=fixed&page-id=1070%3A3285&starting-point-node-id=2346%3A35003&embed-host=share"
-  },
-  {
-    id: "14",
-    title: "ARMMAN",
-    description: "Tech-driven healthcare intervention for maternal and child health, designed to empower rural communities with life-saving information.",
-    image: "/projects/armman.png",
-    category: "Healthcare",
-    size: "large",
-    tags: ["Social Impact", "Healthcare", "Mobile UI"],
-    prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share"
   },
   {
     id: "9",
@@ -158,5 +121,35 @@ export const projects: Project[] = [
     size: "small",
     tags: ["EdTech", "LMS", "Adaptive Learning"],
     prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share"
+  },
+  {
+    id: "12",
+    title: "Mera Bajaj / Connect",
+    description: "A comprehensive mobile ecosystem for Bajaj owners, integrating vehicle health, service tracking, and connected riding features.",
+    image: "/projects/mera_bajaj.png",
+    category: "Automotive",
+    size: "small",
+    tags: ["Mobile UX", "Automotive", "Connected Tech"],
+    prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share"
+  },
+  {
+    id: "13",
+    title: "MP Risk",
+    description: "Enterprise-grade risk management platform for financial institutions, featuring complex data visualization and predictive analytics.",
+    image: "/projects/mp_risk.png",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["Fintech", "Risk Management", "Dashboard"],
+    prototypeUrl: "https://embed.figma.com/proto/COkQHDwxbtpe5ngu591eEc/02_MP-Risk_Cycle-1?node-id=5004-7247&viewport=1265%2C-1827%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=5004%3A7247&page-id=5004%3A4560&embed-host=share"
+  },
+  {
+    id: "14",
+    title: "ARMMAN",
+    description: "Tech-driven healthcare intervention for maternal and child health, designed to empower rural communities with life-saving information.",
+    image: "/projects/armman.png",
+    category: "Healthcare",
+    size: "small",
+    tags: ["Social Impact", "Healthcare", "Mobile UI"],
+    prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share"
   }
 ];
