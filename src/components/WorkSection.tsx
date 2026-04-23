@@ -63,10 +63,10 @@ export default function WorkSection() {
       {/* Bento Grid Layout */}
       <motion.div 
         layout
+        className="projects-grid"
         style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          gridAutoRows: "300px",
+          gridAutoFlow: "dense",
           gap: "1.5rem" 
         }}
       >
@@ -81,6 +81,25 @@ export default function WorkSection() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <style jsx>{`
+        .projects-grid {
+          grid-template-columns: repeat(1, 1fr);
+          grid-auto-rows: minmax(300px, auto);
+        }
+        @media (min-width: 768px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 300px;
+          }
+        }
+        @media (min-width: 1024px) {
+          .projects-grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 300px;
+          }
+        }
+      `}</style>
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>
