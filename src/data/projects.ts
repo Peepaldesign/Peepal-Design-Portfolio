@@ -26,7 +26,7 @@ export const projects: Project[] = [
     id: "2",
     title: "Bajaj Dominar",
     description: "Designing a robust touring platform for the Dominar 400, empowering long-distance riders with community features and trip analytics.",
-    image: "https://images.unsplash.com/photo-1558981403-c5f91dbaf975?q=80&w=2070&auto=format&fit=crop",
+    image: "/projects/dominar_hero.png",
     category: "Automotive",
     size: "small",
     tags: ["Touring", "Connect", "Community"],
