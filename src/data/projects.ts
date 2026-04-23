@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  category: 'UX Design' | 'Research';
+  category: 'Automotive' | 'Healthcare' | 'Industrial & Agri-Tech' | 'Enterprise & Fintech' | 'EdTech';
   size: 'small' | 'large';
   tags: string[];
   prototypeUrl?: string;
@@ -14,62 +14,112 @@ const dummyProto = "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Bioradedisys | Enli8",
-    description: "Research and UI UX Design for a endoscopy system.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
-    category: "UX Design",
+    title: "Bajaj Chetak",
+    description: "Digital transformation of the iconic Chetak experience with a modern EV ecosystem.",
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070&auto=format&fit=crop",
+    category: "Automotive",
     size: "large",
-    tags: ["Medical", "Research", "UI/UX"],
+    tags: ["EV", "Mobile App", "Automotive"],
     prototypeUrl: dummyProto
   },
   {
     id: "2",
-    title: "EcoSphere Mobile App",
-    description: "End-to-end UX for a sustainable lifestyle platform.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    category: "UX Design",
+    title: "Bajaj Dominar",
+    description: "Enhancing the touring experience for the Dominar community through connected tech.",
+    image: "https://images.unsplash.com/photo-1558981403-c5f91dbaf975?q=80&w=2070&auto=format&fit=crop",
+    category: "Automotive",
     size: "small",
-    tags: ["Mobile", "Sustainability", "UI/UX"],
+    tags: ["Touring", "Community", "UX"],
     prototypeUrl: dummyProto
   },
   {
     id: "3",
-    title: "User Behavior Study",
-    description: "Deep dive into Gen-Z shopping patterns in Southeast Asia.",
-    image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=1974&auto=format&fit=crop",
-    category: "Research",
+    title: "Biorad Enli8",
+    description: "Next-generation GUI for endoscopy systems, prioritizing surgeon precision and patient safety.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
+    category: "Healthcare",
     size: "small",
-    tags: ["Insights", "Strategy"],
+    tags: ["Medical", "GUI", "High-Stakes"],
     prototypeUrl: dummyProto
   },
   {
     id: "4",
-    title: "Aura Fintech Dashboard",
-    description: "Visualizing complex financial data for high-net-worth individuals.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    category: "UX Design",
-    size: "small",
-    tags: ["Fintech", "Data Viz"],
+    title: "Biorad Quantino",
+    description: "Streamlining laboratory workflows with an intuitive diagnostic interface.",
+    image: "https://images.unsplash.com/photo-1579152276503-31581d966b61?q=80&w=2070&auto=format&fit=crop",
+    category: "Healthcare",
+    size: "large",
+    tags: ["Diagnostics", "Laboratory", "SaaS"],
     prototypeUrl: dummyProto
   },
   {
     id: "5",
-    title: "Healthcare Accessibility Audit",
-    description: "Evaluating digital health services for rural accessibility.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop",
-    category: "Research",
+    title: "Arable POC",
+    description: "Data-driven agriculture: Visualizing real-time crop health and climate data for farmers.",
+    image: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop",
+    category: "Industrial & Agri-Tech",
     size: "small",
-    tags: ["Healthcare", "Accessibility"],
+    tags: ["Agri-Tech", "IoT", "Data Viz"],
     prototypeUrl: dummyProto
   },
   {
     id: "6",
-    title: "Urban Mobility Research",
-    description: "Synthesizing transit data to improve city navigation experiences.",
-    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop",
-    category: "Research",
+    title: "Milestone Internet",
+    description: "A comprehensive SaaS platform for hospitality digital marketing and performance tracking.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+    category: "Enterprise & Fintech",
     size: "small",
-    tags: ["Mobility", "Urban Planning"],
+    tags: ["SaaS", "Hospitality", "Marketing"],
+    prototypeUrl: dummyProto
+  },
+  {
+    id: "7",
+    title: "TPV Genius",
+    description: "Revolutionizing digital payments and transaction management for global retailers.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["Fintech", "Payments", "Retail"],
+    prototypeUrl: dummyProto
+  },
+  {
+    id: "8",
+    title: "Rem42",
+    description: "AI-powered sleep coaching ecosystem designed to optimize athletic performance and recovery.",
+    image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?q=80&w=1974&auto=format&fit=crop",
+    category: "Healthcare",
+    size: "small",
+    tags: ["AI", "Wellness", "Wearables"],
+    prototypeUrl: dummyProto
+  },
+  {
+    id: "9",
+    title: "AXS",
+    description: "Simplifying complex ticketing and venue management through user-centric interface design.",
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["Ticketing", "Events", "UX"],
+    prototypeUrl: dummyProto
+  },
+  {
+    id: "10",
+    title: "Bobcat",
+    description: "Human-machine interface (HMI) for heavy machinery, built for rugged reliability.",
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
+    category: "Industrial & Agri-Tech",
+    size: "small",
+    tags: ["HMI", "Industrial", "Rugged"],
+    prototypeUrl: dummyProto
+  },
+  {
+    id: "11",
+    title: "Infinity Learn",
+    description: "Personalized learning paths and adaptive assessment tools for the next generation of students.",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop",
+    category: "EdTech",
+    size: "small",
+    tags: ["EdTech", "Education", "LMS"],
     prototypeUrl: dummyProto
   }
 ];

@@ -6,13 +6,18 @@ import { X, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
 export default function WorkSection() {
-  const [filter, setFilter] = useState<'All' | 'UX Design' | 'Research'>('All');
+  const [filter, setFilter] = useState<string>('All');
   const [activePrototype, setActivePrototype] = useState<Project | null>(null);
+
+  // Dynamically extract categories from project data
+  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
   const filteredProjects = projects.filter(p => 
     filter === 'All' ? true : p.category === filter
   );
 
+  // We keep the Bento layout only for the "All" tab. 
+  // For specific industry tabs, we use a uniform small-card grid.
   const isForcedSmall = filter !== 'All';
 
   return (
@@ -26,22 +31,21 @@ export default function WorkSection() {
       >
         <h2 style={{ fontSize: "3rem", fontWeight: 700, marginBottom: "1.5rem" }}>Our Work</h2>
         
-        {/* Tabs Component */}
-        <div className="glass" style={{ 
-          display: "inline-flex", 
-          padding: "0.5rem", 
-          borderRadius: "16px", 
-          gap: "0.5rem",
+        {/* Dynamic Industry Tabs */}
+        <div style={{ 
+          display: "flex", 
+          flexWrap: "wrap",
+          gap: "0.75rem",
           marginBottom: "3rem"
         }}>
-          {['All', 'UX Design', 'Research'].map((tab) => (
+          {categories.map((tab) => (
             <button
               key={tab}
-              onClick={() => setFilter(tab as any)}
+              onClick={() => setFilter(tab)}
               style={{
                 padding: "0.75rem 1.5rem",
                 borderRadius: "12px",
-                border: "none",
+                border: filter === tab ? "none" : "1px solid rgba(0,0,0,0.1)",
                 background: filter === tab ? "var(--foreground)" : "transparent",
                 color: filter === tab ? "var(--background)" : "var(--foreground)",
                 fontWeight: 600,
@@ -80,105 +84,77 @@ export default function WorkSection() {
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>
-        {activePrototype && activePrototype.prototypeUrl && (
+        {activePrototype && (
           <div style={{ 
             position: "fixed", 
             top: 0, 
             left: 0, 
-            right: 0, 
-            bottom: 0, 
-            zIndex: 10001, 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center", 
-            padding: "2rem" 
+            width: "100vw", 
+            height: "100vh", 
+            zIndex: 1000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "2rem"
           }}>
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActivePrototype(null)}
-              style={{ 
-                position: "absolute", 
-                top: 0, 
-                left: 0, 
-                right: 0, 
-                bottom: 0, 
-                background: "rgba(0,0,0,0.8)", 
-                backdropFilter: "blur(12px)" 
-              }} 
+              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.9)", backdropFilter: "blur(10px)" }}
             />
             
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 30 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               style={{ 
-                background: "white", 
-                width: "95%", 
-                maxWidth: "1200px", 
-                height: "90vh",
-                borderRadius: "32px", 
                 position: "relative", 
+                width: "95vw", 
+                height: "90vh", 
+                background: "black", 
+                borderRadius: "24px", 
                 overflow: "hidden",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)",
-                display: "flex",
-                flexDirection: "column"
+                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)"
               }}
             >
-              <div style={{ 
-                padding: "1.5rem 2rem", 
-                borderBottom: "1px solid rgba(0,0,0,0.05)", 
-                display: "flex", 
-                justifyContent: "space-between", 
-                alignItems: "center",
-                background: "white",
-                zIndex: 10
-              }}>
-                <div>
-                  <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "black" }}>{activePrototype.title}</h3>
-                  <p style={{ fontSize: "0.9rem", color: "#6b7280" }}>Figma Prototype</p>
-                </div>
-                <button 
-                  onClick={() => setActivePrototype(null)}
-                  style={{ 
-                    background: "rgba(0,0,0,0.05)", 
-                    border: "none", 
-                    borderRadius: "100px", 
-                    padding: "0.5rem", 
-                    cursor: "pointer",
-                    color: "#6b7280"
-                  }}
-                >
-                  <X size={24} />
-                </button>
-              </div>
-
-              <div style={{ flexGrow: 1, background: "#f3f4f6", position: "relative" }}>
-                <iframe 
-                  style={{ border: "none", width: "100%", height: "100%" }} 
-                  src={activePrototype.prototypeUrl} 
-                  allowFullScreen
-                ></iframe>
-              </div>
+              <button 
+                onClick={() => setActivePrototype(null)}
+                style={{ 
+                  position: "absolute", 
+                  top: "1.5rem", 
+                  right: "1.5rem", 
+                  zIndex: 10,
+                  background: "white",
+                  border: "none",
+                  borderRadius: "50%",
+                  width: "40px",
+                  height: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer"
+                }}
+              >
+                <X size={24} />
+              </button>
+              
+              <iframe 
+                src={activePrototype.prototypeUrl}
+                style={{ width: "100%", height: "100%", border: "none" }}
+                allowFullScreen
+              />
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-
-      <style jsx>{`
-        @media (min-width: 768px) {
-          div[style*="grid"] {
-            gridTemplateColumns: repeat(3, 1fr);
-          }
-        }
-      `}</style>
     </section>
   );
 }
 
-function ProjectCard({ project, onVisitPrototype, isForcedSmall }: { project: Project, onVisitPrototype: () => void, isForcedSmall: boolean }) {
-  const isLarge = !isForcedSmall && project.size === 'large';
+function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Project, isForcedSmall: boolean, onVisitPrototype: () => void }) {
+  const isLarge = project.size === 'large' && !isForcedSmall;
 
   return (
     <motion.div
@@ -187,34 +163,38 @@ function ProjectCard({ project, onVisitPrototype, isForcedSmall }: { project: Pr
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.4 }}
-      className="glass"
       style={{
         gridColumn: isLarge ? "span 2" : "span 1",
         gridRow: isLarge ? "span 2" : "span 1",
+        position: "relative",
         borderRadius: "24px",
         overflow: "hidden",
-        position: "relative",
-        cursor: "pointer"
+        cursor: "pointer",
+        background: "#f3f4f6"
       }}
     >
       <img 
         src={project.image} 
         alt={project.title} 
-        style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }}
+        style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
+        className="card-image"
       />
-      <div style={{ 
-        position: "absolute", 
-        bottom: 0, 
-        left: 0, 
-        right: 0, 
-        padding: "2rem", 
-        background: "linear-gradient(to top, rgba(0,0,0,0.9), transparent)",
+      
+      {/* Overlay */}
+      <div style={{
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)",
+        padding: "2rem",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        height: "60%"
+        transition: "opacity 0.3s ease"
       }}>
-        <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem" }}>
+        <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
           {project.tags.map(tag => (
             <span key={tag} style={{ 
               fontSize: "0.7rem", 
@@ -230,7 +210,16 @@ function ProjectCard({ project, onVisitPrototype, isForcedSmall }: { project: Pr
           ))}
         </div>
         <h3 style={{ fontSize: isLarge ? "2rem" : "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#ffffff" }}>{project.title}</h3>
-        <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.5, marginBottom: project.prototypeUrl ? "1.5rem" : 0 }}>{project.description}</p>
+        <p style={{ 
+          fontSize: "0.95rem", 
+          color: "rgba(255,255,255,0.75)", 
+          lineHeight: 1.5, 
+          marginBottom: project.prototypeUrl ? "1.5rem" : 0,
+          display: "-webkit-box",
+          WebkitLineClamp: isLarge ? 3 : 2,
+          WebkitBoxOrient: "vertical",
+          overflow: "hidden"
+        }}>{project.description}</p>
         
         {project.prototypeUrl && (
           <motion.button
@@ -253,13 +242,19 @@ function ProjectCard({ project, onVisitPrototype, isForcedSmall }: { project: Pr
               alignItems: "center",
               gap: "0.5rem",
               cursor: "pointer",
-              backdropFilter: "blur(10px)"
+              backdropFilter: "blur(8px)"
             }}
           >
             Visit Prototype <ExternalLink size={14} />
           </motion.button>
         )}
       </div>
+
+      <style jsx>{`
+        div:hover .card-image {
+          transform: scale(1.05);
+        }
+      `}</style>
     </motion.div>
   );
 }
