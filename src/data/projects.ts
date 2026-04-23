@@ -120,6 +120,6 @@ export const projects: Project[] = [
     category: "EdTech",
     size: "small",
     tags: ["EdTech", "LMS", "Adaptive Learning"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share"
   }
 ];
