@@ -50,7 +50,7 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "large",
     tags: ["Lab Diagnostics", "Healthcare UX", "Workflow"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/C1ccZy6vyOQl75mAszj8Z4/05_Quantino_Relook?node-id=1-23115&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A22063&starting-point-node-id=1%3A23115&embed-host=share"
   },
   {
     id: "5",
