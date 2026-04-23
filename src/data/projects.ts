@@ -30,7 +30,7 @@ export const projects: Project[] = [
     category: "Automotive",
     size: "small",
     tags: ["Touring", "Connect", "Community"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/k1BZKgmAnTCf8yvDjnGkAO/BA02_Internal-Design-File?node-id=10030-59252&scaling=contain&content-scaling=fixed&page-id=1608%3A10166&starting-point-node-id=10030%3A57669&embed-host=share"
   },
   {
     id: "3",
