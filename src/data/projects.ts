@@ -90,7 +90,7 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["AI Coaching", "Wellness App", "Biometrics"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/zmJWr1VnmSy1nnOproWfgn/03---00-_-ZHEAL-1.0-and-REM42-v1.0--Prototypes-?node-id=2346-35003&p=f&scaling=contain&content-scaling=fixed&page-id=1070%3A3285&starting-point-node-id=2346%3A35003&embed-host=share"
   },
   {
     id: "9",
