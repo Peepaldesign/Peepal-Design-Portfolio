@@ -110,7 +110,7 @@ export const projects: Project[] = [
     category: "Industrial & Agri-Tech",
     size: "small",
     tags: ["Industrial HMI", "Heavy Equip", "Safety UX"],
-    prototypeUrl: "https://embed.figma.com/proto/zAsnKDA7b1OhAHZSCnpWrt/P21_Bobcat-Excavators?node-id=2775-19787&p=f&scaling=contain&content-scaling=fixed&page-id=2768%3A9311&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/zAsnKDA7b1OhAHZSCnpWrt/P21_Bobcat-Excavators?node-id=2768-9312&p=f&scaling=contain&content-scaling=fixed&page-id=2768%3A9311&embed-host=share"
   },
   {
     id: "11",
