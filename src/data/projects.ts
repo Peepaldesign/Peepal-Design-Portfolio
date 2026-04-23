@@ -59,8 +59,8 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop",
     category: "Industrial & Agri-Tech",
     size: "small",
-    tags: ["Agri-Tech", "IoT Data", "Dashboards"],
-    prototypeUrl: dummyProto
+    tags: ["Agri-Tech", "IoT Data", "POC"],
+    prototypeUrl: "https://embed.figma.com/proto/Vr2wQGD6AT3JDjfx2l3ATq/01_Arable-POC-v1?node-id=107-1133&p=f&viewport=761%2C-635%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=107%3A1133&page-id=35%3A4&embed-host=share"
   },
   {
     id: "6",
