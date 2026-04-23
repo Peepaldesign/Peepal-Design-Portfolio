@@ -65,12 +65,13 @@ export default function WorkSection() {
         layout
         style={{ 
           display: "grid", 
+          // Dynamic grid: Bento for 'All', 3-column minmax for others
           gridTemplateColumns: filter === 'All' 
             ? "repeat(auto-fill, minmax(300px, 1fr))" 
-            : "repeat(1, 1fr)", // Mobile default
+            : "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
+          gridAutoRows: filter === 'All' ? "300px" : "300px",
           gap: "1.5rem" 
         }}
-        className={filter !== 'All' ? "category-grid" : ""}
       >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
@@ -82,34 +83,6 @@ export default function WorkSection() {
             />
           ))}
         </AnimatePresence>
-
-        <style jsx>{`
-          @media (min-width: 768px) {
-            div {
-              grid-template-columns: ${filter === 'All' ? 'repeat(auto-fill, minmax(300px, 1fr))' : 'repeat(2, 1fr)'} !important;
-              grid-auto-rows: 300px;
-            }
-          }
-          @media (min-width: 1024px) {
-            div {
-              grid-template-columns: ${filter === 'All' ? 'repeat(auto-fill, minmax(300px, 1fr))' : 'repeat(3, 1fr)'} !important;
-            }
-          }
-          
-          /* Ensure uniform height for category grid */
-          .category-grid > div {
-            height: 300px !important;
-          }
-
-          /* Compact text for smaller category cards */
-          .category-grid h3 {
-            font-size: 1.15rem !important;
-          }
-          .category-grid p {
-            font-size: 0.85rem !important;
-            -webkit-line-clamp: 2 !important;
-          }
-        `}</style>
       </motion.div>
 
       {/* Figma Prototype Modal */}
