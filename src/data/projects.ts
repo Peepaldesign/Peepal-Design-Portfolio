@@ -15,8 +15,8 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Bajaj Chetak",
-    description: "Designing the mobile ecosystem for India's iconic EV relaunch, focusing on connected riding and after-sales service.",
-    image: "https://images.unsplash.com/photo-1595246140625-573b715d11dc?q=80&w=2070&auto=format&fit=crop",
+    description: "Reimagining the legendary Chetak as a premium electric vehicle, focusing on a connected mobile ecosystem and intuitive riding controls.",
+    image: "https://images.unsplash.com/photo-1620055452818-19597c667086?q=80&w=2070&auto=format&fit=crop",
     category: "Automotive",
     size: "large",
     tags: ["EV App", "Mobile UX", "IoT"],
@@ -25,8 +25,8 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "Bajaj Dominar",
-    description: "Creating a unified digital platform for long-distance tourers to enhance community engagement and trip tracking.",
-    image: "https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=1974&auto=format&fit=crop",
+    description: "Designing a robust touring platform for the Dominar 400, empowering long-distance riders with community features and trip analytics.",
+    image: "https://images.unsplash.com/photo-1558981403-c5f91dbaf975?q=80&w=2070&auto=format&fit=crop",
     category: "Automotive",
     size: "small",
     tags: ["Touring", "Connect", "Community"],
@@ -35,37 +35,37 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Biorad Enli8",
-    description: "Revamping the GUI for endoscopy video processing units to standardize surgical flows and improve precision.",
+    description: "A specialized GUI for endoscopy video processing units, standardizing medical procedures and enhancing surgeon situational awareness.",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
     category: "Healthcare",
     size: "small",
-    tags: ["Medical UI", "Endoscopy", "TFT Display"],
+    tags: ["Medical UI", "Endoscopy", "Standardization"],
     prototypeUrl: dummyProto
   },
   {
     id: "4",
     title: "Biorad Quantino",
-    description: "Laboratory diagnostic interface design focused on reducing human error and accelerating testing workflows.",
-    image: "https://images.unsplash.com/photo-1532187863486-abf9d3a35223?q=80&w=2070&auto=format&fit=crop",
+    description: "Designing a high-precision diagnostic interface for laboratory workflows, built to minimize error and maximize throughput.",
+    image: "https://images.unsplash.com/photo-1579152276503-31581d966b61?q=80&w=2070&auto=format&fit=crop",
     category: "Healthcare",
     size: "large",
-    tags: ["Lab Diagnostics", "SaaS", "Healthcare"],
+    tags: ["Lab Diagnostics", "Healthcare UX", "Workflow"],
     prototypeUrl: dummyProto
   },
   {
     id: "5",
     title: "Arable POC",
-    description: "Proof-of-concept for an Agri-Tech IoT platform, visualizing real-time soil health and weather data for precision farming.",
+    description: "Visualizing complex agri-tech data through an IoT dashboard, enabling farmers to make real-time decisions based on crop and climate health.",
     image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop",
     category: "Industrial & Agri-Tech",
     size: "small",
-    tags: ["Agri-Tech", "IoT Data", "POC"],
+    tags: ["Agri-Tech", "IoT Data", "Dashboards"],
     prototypeUrl: dummyProto
   },
   {
     id: "6",
     title: "Milestone Internet",
-    description: "Enterprise SaaS design for hospitality, optimizing digital asset management and performance tracking for hotels.",
+    description: "A comprehensive SaaS platform for hospitality digital marketing, optimizing hotel asset management and conversion tracking.",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   {
     id: "7",
     title: "TPV Genius",
-    description: "Next-gen retail payment interface for interactive smart displays, streamlining transaction management for global markets.",
+    description: "Designing a high-traffic retail payment experience for smart displays, focusing on speed, security, and global accessibility.",
     image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
@@ -85,41 +85,41 @@ export const projects: Project[] = [
   {
     id: "8",
     title: "Rem42",
-    description: "UX design for an AI-powered sleep coaching ecosystem, built to optimize recovery and peak performance for athletes.",
+    description: "AI-powered sleep coaching ecosystem designed for elite athletes, translating biometric data into actionable recovery insights.",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop",
     category: "Healthcare",
     size: "small",
-    tags: ["AI Coaching", "Wellness App", "Healthcare"],
+    tags: ["AI Coaching", "Wellness App", "Biometrics"],
     prototypeUrl: dummyProto
   },
   {
     id: "9",
     title: "AXS",
-    description: "Modernizing the live event ticketing experience with a focus on high-traffic performance and user flow efficiency.",
+    description: "Streamlining the digital ticketing journey for global venues, ensuring a friction-free experience from discovery to entry.",
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
-    tags: ["Ticketing", "Events", "User Flow"],
+    tags: ["Ticketing", "Events UX", "Mobile"],
     prototypeUrl: dummyProto
   },
   {
     id: "10",
     title: "Bobcat",
-    description: "Human-Machine Interface (HMI) for heavy industrial equipment, engineered for clarity and safety in rugged environments.",
+    description: "Designing the Human-Machine Interface (HMI) for industrial heavy equipment, built for durability and mission-critical reliability.",
     image: "https://images.unsplash.com/photo-1533923156502-be31530547c4?q=80&w=1974&auto=format&fit=crop",
     category: "Industrial & Agri-Tech",
     size: "small",
-    tags: ["Industrial HMI", "Heavy Equip", "Rugged UX"],
+    tags: ["Industrial HMI", "Heavy Equip", "Safety UX"],
     prototypeUrl: dummyProto
   },
   {
     id: "11",
     title: "Infinity Learn",
-    description: "Adaptive EdTech platform design, institutionalizing personalized learning and pedagogy for K-12 students.",
+    description: "An adaptive learning platform that institutionalizes pedagogy through personalized assessment and learning paths for K-12.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
     category: "EdTech",
     size: "small",
-    tags: ["EdTech", "LMS", "Personalized Learn"],
+    tags: ["EdTech", "LMS", "Adaptive Learning"],
     prototypeUrl: dummyProto
   }
 ];
