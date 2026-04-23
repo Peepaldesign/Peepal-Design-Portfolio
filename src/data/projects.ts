@@ -20,7 +20,7 @@ export const projects: Project[] = [
     category: "Automotive",
     size: "large",
     tags: ["EV App", "Mobile UX", "IoT"],
-    prototypeUrl: dummyProto
+    prototypeUrl: "https://embed.figma.com/proto/XVVvhX8ahqBksg7Ffhy2D7/03_7%22-Touch?node-id=193-2242&viewport=5356%2C2401%2C0.46&scaling=contain&content-scaling=fixed&starting-point-node-id=84%3A6905&page-id=84%3A5718&embed-host=share"
   },
   {
     id: "2",
