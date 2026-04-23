@@ -98,7 +98,16 @@ export default function WorkSection() {
           
           /* Ensure uniform height for category grid */
           .category-grid > div {
-            height: 350px !important;
+            height: 300px !important;
+          }
+
+          /* Compact text for smaller category cards */
+          .category-grid h3 {
+            font-size: 1.15rem !important;
+          }
+          .category-grid p {
+            font-size: 0.85rem !important;
+            -webkit-line-clamp: 2 !important;
           }
         `}</style>
       </motion.div>
