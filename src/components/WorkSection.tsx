@@ -131,7 +131,7 @@ export default function WorkSection() {
                 style={{ 
                   position: "absolute", 
                   top: "1.5rem", 
-                  right: "1.5rem", 
+                  left: "1.5rem", 
                   zIndex: 10,
                   background: "white",
                   border: "none",
