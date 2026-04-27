@@ -60,20 +60,24 @@ export default function WorkSection() {
         </div>
       </motion.div>
 
-      {/* Bento Grid Layout */}
-      <motion.div 
-        layout
-        style={{ 
-          display: "grid", 
-          // Dynamic grid: Bento for 'All', 3-column minmax for others
-          gridTemplateColumns: filter === 'All' 
-            ? "repeat(auto-fill, minmax(300px, 1fr))" 
-            : "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
-          gridAutoRows: filter === 'All' ? "300px" : "300px",
-          gap: "1.5rem" 
-        }}
-      >
-        <AnimatePresence mode="popLayout">
+      {/* Project Grid with Fade Animation */}
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={filter}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          style={{ 
+            display: "grid", 
+            // Dynamic grid: Bento for 'All', 3-column minmax for others
+            gridTemplateColumns: filter === 'All' 
+              ? "repeat(auto-fill, minmax(300px, 1fr))" 
+              : "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
+            gridAutoRows: filter === 'All' ? "300px" : "300px",
+            gap: "1.5rem" 
+          }}
+        >
           {filteredProjects.map((project) => (
             <ProjectCard 
               key={project.id} 
@@ -82,8 +86,8 @@ export default function WorkSection() {
               onVisitPrototype={() => setActivePrototype(project)}
             />
           ))}
-        </AnimatePresence>
-      </motion.div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>
@@ -161,11 +165,9 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
       style={{
         gridColumn: isLarge ? "span 2" : "span 1",
         gridRow: isLarge ? "span 2" : "span 1",
