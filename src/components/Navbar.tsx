@@ -84,20 +84,36 @@ export default function Navbar() {
               {item.name}
             </a>
           ))}
-          <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
-            <button style={{ 
-              background: "var(--foreground)", 
-              color: "var(--background)", 
-              padding: "0.75rem 1.75rem", 
-              borderRadius: "12px", 
-              border: "none", 
-              fontWeight: 700, 
-              fontSize: "0.95rem",
-              cursor: "pointer"
-            }}>
-              Visit our Official Website
-            </button>
-          </a>
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <a href="https://peepaldesign.com/work" target="_blank" rel="noopener noreferrer">
+              <button style={{ 
+                background: "transparent", 
+                color: "var(--foreground)", 
+                padding: "0.75rem 1.75rem", 
+                borderRadius: "12px", 
+                border: "1px solid var(--foreground)", 
+                fontWeight: 700, 
+                fontSize: "0.95rem",
+                cursor: "pointer"
+              }}>
+                Case Studies
+              </button>
+            </a>
+            <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
+              <button style={{ 
+                background: "var(--foreground)", 
+                color: "var(--background)", 
+                padding: "0.75rem 1.75rem", 
+                borderRadius: "12px", 
+                border: "none", 
+                fontWeight: 700, 
+                fontSize: "0.95rem",
+                cursor: "pointer"
+              }}>
+                Visit our Official Website
+              </button>
+            </a>
+          </div>
         </div>
 
         <div style={{ display: "block" }} className="md-none">
@@ -132,19 +148,34 @@ export default function Navbar() {
                   {item}
                 </a>
               ))}
-              <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
-                <button style={{ 
-                  background: "black", 
-                  color: "white", 
-                  padding: "1rem", 
-                  borderRadius: "12px", 
-                  border: "none", 
-                  width: "100%", 
-                  fontWeight: 700 
-                }}>
-                  Visit our Official Website
-                </button>
-              </a>
+              <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                <a href="https://peepaldesign.com/work" target="_blank" rel="noopener noreferrer">
+                  <button style={{ 
+                    background: "transparent", 
+                    color: "black", 
+                    padding: "1rem", 
+                    borderRadius: "12px", 
+                    border: "1px solid black", 
+                    width: "100%", 
+                    fontWeight: 700 
+                  }}>
+                    Case Studies
+                  </button>
+                </a>
+                <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
+                  <button style={{ 
+                    background: "black", 
+                    color: "white", 
+                    padding: "1rem", 
+                    borderRadius: "12px", 
+                    border: "none", 
+                    width: "100%", 
+                    fontWeight: 700 
+                  }}>
+                    Visit our Official Website
+                  </button>
+                </a>
+              </div>
             </div>
           </motion.div>
         )}
