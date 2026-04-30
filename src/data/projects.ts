@@ -7,6 +7,7 @@ export interface Project {
   size: 'small' | 'large';
   tags: string[];
   prototypeUrl?: string;
+  caseStudyUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -18,7 +19,8 @@ export const projects: Project[] = [
     category: "Automotive",
     size: "large",
     tags: ["EV App", "Mobile UX", "IoT"],
-    prototypeUrl: "https://embed.figma.com/proto/XVVvhX8ahqBksg7Ffhy2D7/03_7%22-Touch?node-id=193-2242&viewport=5356%2C2401%2C0.46&scaling=contain&content-scaling=fixed&starting-point-node-id=84%3A6905&page-id=84%3A5718&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/XVVvhX8ahqBksg7Ffhy2D7/03_7%22-Touch?node-id=193-2242&viewport=5356%2C2401%2C0.46&scaling=contain&content-scaling=fixed&starting-point-node-id=84%3A6905&page-id=84%3A5718&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=859-14&p=f&viewport=512%2C2728%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=859%3A14&page-id=859%3A2&embed-host=share"
   },
   {
     id: "2",
@@ -38,7 +40,8 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["Medical UI", "Endoscopy", "Standardization"],
-    prototypeUrl: "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=816-28881&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A13&starting-point-node-id=816%3A28463&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=816-28881&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A13&starting-point-node-id=816%3A28463&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=929-6237&p=f&viewport=-191%2C5218%2C0.49&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=929%3A6237&page-id=906%3A200&embed-host=share"
   },
   {
     id: "4",
@@ -48,7 +51,8 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "large",
     tags: ["Lab Diagnostics", "Healthcare UX", "Workflow"],
-    prototypeUrl: "https://embed.figma.com/proto/C1ccZy6vyOQl75mAszj8Z4/05_Quantino_Relook?node-id=1-23115&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A22063&starting-point-node-id=1%3A23115&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/C1ccZy6vyOQl75mAszj8Z4/05_Quantino_Relook?node-id=1-23115&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A22063&starting-point-node-id=1%3A23115&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3578&p=f&viewport=715%2C4065%2C0.36&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A3578&page-id=989%3A3576&embed-host=share"
   },
   {
     id: "5",
@@ -68,7 +72,8 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Hospitality", "Enterprise SaaS", "B2B"],
-    prototypeUrl: "https://embed.figma.com/proto/0madtudLOJvYCwpY5wuA2J/11_MI-Blogs-studio-v1.0?node-id=2208-14341&viewport=165%2C-5262%2C0.15&scaling=contain&content-scaling=fixed&starting-point-node-id=2208%3A14341&page-id=2208%3A6565&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/0madtudLOJvYCwpY5wuA2J/11_MI-Blogs-studio-v1.0?node-id=2208-14341&viewport=165%2C-5262%2C0.15&scaling=contain&content-scaling=fixed&starting-point-node-id=2208%3A14341&page-id=2208%3A6565&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-2874&p=f&viewport=699%2C876%2C0.05&scaling=scale-down&content-scaling=fixed&page-id=816%3A2699&starting-point-node-id=816%3A2874&embed-host=share"
   },
   {
     id: "7",
@@ -88,7 +93,8 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["AI Coaching", "Wellness App", "Biometrics"],
-    prototypeUrl: "https://embed.figma.com/proto/zmJWr1VnmSy1nnOproWfgn/03---00-_-ZHEAL-1.0-and-REM42-v1.0--Prototypes-?node-id=2346-35003&p=f&scaling=contain&content-scaling=fixed&page-id=1070%3A3285&starting-point-node-id=2346%3A35003&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/zmJWr1VnmSy1nnOproWfgn/03---00-_-ZHEAL-1.0-and-REM42-v1.0--Prototypes-?node-id=2346-35003&p=f&scaling=contain&content-scaling=fixed&page-id=1070%3A3285&starting-point-node-id=2346%3A35003&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-51&p=f&viewport=978%2C1028%2C0.06&scaling=scale-down&content-scaling=fixed&starting-point-node-id=816%3A51&page-id=816%3A2&embed-host=share"
   },
   {
     id: "9",
@@ -128,7 +134,8 @@ export const projects: Project[] = [
     category: "Automotive",
     size: "small",
     tags: ["Mobile UX", "Automotive", "Connected Tech"],
-    prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share",
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=988-2889&p=f&viewport=272%2C859%2C0.03&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=988%3A2889&page-id=868%3A2&embed-host=share"
   },
   {
     id: "13",
