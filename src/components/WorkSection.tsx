@@ -250,7 +250,7 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
               backdropFilter: "blur(8px)"
             }}
           >
-            Visit Prototype <ExternalLink size={14} />
+            View Case Study <ExternalLink size={14} />
           </motion.button>
         )}
       </div>

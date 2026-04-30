@@ -20,7 +20,7 @@ export default function Navbar() {
       { threshold: 0.5 }
     );
 
-    const sections = ["home", "work", "case-studies"];
+    const sections = ["home", "work"];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -63,8 +63,7 @@ export default function Navbar() {
         <div style={{ display: "none", gap: "2.5rem", alignItems: "center" }} className="md-flex">
           {[
             { name: "Home", id: "home" },
-            { name: "Work", id: "work" },
-            { name: "Case Studies", id: "case-studies" }
+            { name: "Work", id: "work" }
           ].map((item) => (
             <a 
               key={item.name} 
@@ -123,8 +122,7 @@ export default function Navbar() {
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
               {[
                 { name: "Home", id: "home" },
-                { name: "Work", id: "work" },
-                { name: "Case Studies", id: "case-studies" }
+                { name: "Work", id: "work" }
               ].map((item) => (
                 <a 
                   key={item.id} 
