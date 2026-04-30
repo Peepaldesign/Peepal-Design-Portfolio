@@ -1,27 +1,24 @@
 "use client";
+// v1.0.1 - Rebuild trigger
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, ExternalLink } from "lucide-react";
-import { projects, Project } from "@/data/projects";
+import { caseStudies, CaseStudy } from "@/data/caseStudies";
 
-export default function WorkSection() {
-  const [filter, setFilter] = useState<string>('All');
-  const [activePrototype, setActivePrototype] = useState<Project | null>(null);
+export default function CaseStudiesSection() {
+  const [filter, setFilter] = useState<string>('All Case Studies');
+  const [activePrototype, setActivePrototype] = useState<CaseStudy | null>(null);
 
-  // Dynamically extract categories from project data
-  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+  // Dynamically extract categories from case studies data
+  const categories = ['All Case Studies', ...Array.from(new Set(caseStudies.map(p => p.category)))];
 
-  const filteredProjects = projects.filter(p => 
-    filter === 'All' ? true : p.category === filter
+  const filteredProjects = caseStudies.filter(p => 
+    filter === 'All Case Studies' ? true : p.category === filter
   );
 
-  // We keep the Bento layout only for the "All" tab. 
-  // For specific industry tabs, we use a uniform small-card grid.
-  const isForcedSmall = filter !== 'All';
-
   return (
-    <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
+    <section id="case-studies" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -29,38 +26,41 @@ export default function WorkSection() {
         transition={{ duration: 0.8 }}
         style={{ textAlign: "left", marginBottom: "4rem" }}
       >
-        <h2 style={{ fontSize: "3rem", fontWeight: 700, marginBottom: "1.5rem" }}>Our Work</h2>
-        
-        {/* Dynamic Industry Tabs */}
-        <div style={{ 
-          display: "flex", 
-          flexWrap: "wrap",
-          gap: "0.75rem",
-          marginBottom: "3rem"
-        }}>
-          {categories.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setFilter(tab)}
-              style={{
-                padding: "0.75rem 1.5rem",
-                borderRadius: "12px",
-                border: filter === tab ? "none" : "1px solid rgba(0,0,0,0.1)",
-                background: filter === tab ? "var(--foreground)" : "transparent",
-                color: filter === tab ? "var(--background)" : "var(--foreground)",
-                fontWeight: 600,
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                fontSize: "0.9rem"
-              }}
-            >
-              {tab === 'All' ? 'All Work' : tab}
-            </button>
-          ))}
-        </div>
+        <h2 style={{ fontSize: "3rem", fontWeight: 700, marginBottom: "1.5rem" }}>Case Studies</h2>
+        <p style={{ fontSize: "1.1rem", color: "#4b5563", maxWidth: "600px" }}>
+          Dive deep into our process, challenges, and the solutions we crafted for these transformative projects.
+        </p>
       </motion.div>
 
-      {/* Project Grid with Fade Animation */}
+      {/* Dynamic Industry Tabs */}
+      <div style={{ 
+        display: "flex", 
+        flexWrap: "wrap",
+        gap: "0.75rem",
+        marginBottom: "3rem"
+      }}>
+        {categories.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setFilter(tab)}
+            style={{
+              padding: "0.75rem 1.5rem",
+              borderRadius: "12px",
+              border: filter === tab ? "none" : "1px solid rgba(0,0,0,0.1)",
+              background: filter === tab ? "var(--foreground)" : "transparent",
+              color: filter === tab ? "var(--background)" : "var(--foreground)",
+              fontWeight: 600,
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              fontSize: "0.9rem"
+            }}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+
+      {/* Grid Layout */}
       <AnimatePresence mode="wait">
         <motion.div 
           key={filter}
@@ -70,28 +70,51 @@ export default function WorkSection() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           style={{ 
             display: "grid", 
-            // Dynamic grid: Bento for 'All', 3-column minmax for others
-            gridTemplateColumns: filter === 'All' 
-              ? "repeat(auto-fill, minmax(300px, 1fr))" 
-              : "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
-            gridAutoRows: filter === 'All' ? "300px" : "300px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
             gap: "1.5rem" 
           }}
+          className="case-studies-grid"
         >
           {filteredProjects.map((project) => (
-            <ProjectCard 
+            <CaseStudyCard 
               key={project.id} 
               project={project} 
-              isForcedSmall={isForcedSmall}
               onVisitPrototype={() => setActivePrototype(project)}
             />
           ))}
         </motion.div>
       </AnimatePresence>
 
+        <style jsx>{`
+          @media (min-width: 768px) {
+            .case-studies-grid {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (min-width: 1024px) {
+            .case-studies-grid {
+              grid-template-columns: repeat(3, 1fr) !important;
+            }
+          }
+          
+          /* Ensure uniform height for category grid */
+          .case-studies-grid > div {
+            height: 300px !important;
+          }
+
+          /* Compact text for smaller category cards */
+          .case-studies-grid h3 {
+            font-size: 1.15rem !important;
+          }
+          .case-studies-grid p {
+            font-size: 0.85rem !important;
+            -webkit-line-clamp: 2 !important;
+          }
+        `}</style>
+
       {/* Figma Prototype Modal */}
       <AnimatePresence>
-        {activePrototype && (
+        {activePrototype && activePrototype.prototypeUrl && (
           <div style={{ 
             position: "fixed", 
             top: 0, 
@@ -160,17 +183,14 @@ export default function WorkSection() {
   );
 }
 
-function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Project, isForcedSmall: boolean, onVisitPrototype: () => void }) {
-  const isLarge = project.size === 'large' && !isForcedSmall;
-
+function CaseStudyCard({ project, onVisitPrototype }: { project: CaseStudy, onVisitPrototype: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
       style={{
-        gridColumn: isLarge ? "span 2" : "span 1",
-        gridRow: isLarge ? "span 2" : "span 1",
         position: "relative",
         borderRadius: "24px",
         overflow: "hidden",
@@ -214,14 +234,14 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
             </span>
           ))}
         </div>
-        <h3 style={{ fontSize: isLarge ? "2rem" : "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#ffffff" }}>{project.title}</h3>
+        <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#ffffff" }}>{project.title}</h3>
         <p style={{ 
           fontSize: "0.95rem", 
           color: "rgba(255,255,255,0.75)", 
           lineHeight: 1.5, 
           marginBottom: project.prototypeUrl ? "1.5rem" : 0,
           display: "-webkit-box",
-          WebkitLineClamp: isLarge ? 3 : 2,
+          WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
           overflow: "hidden"
         }}>{project.description}</p>
@@ -250,7 +270,7 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
               backdropFilter: "blur(8px)"
             }}
           >
-            Visit Prototype <ExternalLink size={14} />
+            View Case Study <ExternalLink size={14} />
           </motion.button>
         )}
       </div>

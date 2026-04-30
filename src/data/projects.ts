@@ -3,11 +3,13 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  category: string;
+  category: 'Automotive' | 'Healthcare' | 'Industrial & Agri-Tech' | 'Enterprise & Fintech' | 'EdTech';
   size: 'small' | 'large';
   tags: string[];
   prototypeUrl?: string;
 }
+
+const dummyProto = "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=844-27066&p=f&viewport=-145%2C1210%2C0.02&scaling=contain&content-scaling=fixed&starting-point-node-id=816%3A28881&show-proto-sidebar=1&page-id=1%3A13&embed-host=share";
 
 export const projects: Project[] = [
   {
@@ -149,146 +151,5 @@ export const projects: Project[] = [
     size: "small",
     tags: ["Social Impact", "Healthcare", "Mobile UI"],
     prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share"
-  },
-  // Merged Case Studies
-  {
-    id: "cs1",
-    title: "Philips Hospitality TV",
-    description: "A centralized platform for managing large-scale display ecosystem.",
-    image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Enterprise", "Display Ecosystem", "Dashboard"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?page-id=3005%3A2&node-id=3005-9&p=f&viewport=377%2C-674%2C0.24&scaling=contain&content-scaling=fixed&starting-point-node-id=3005%3A9&embed-host=share"
-  },
-  {
-    id: "cs2",
-    title: "MINDSPARK",
-    description: "Personalised learning platform enabling children to meaningfully advance at their own pace.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
-    category: "EdTech",
-    size: "small",
-    tags: ["EdTech", "Personalised Learning", "UX"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32&scaling=contain&content-scaling=fixed&starting-point-node-id=65%3A3486&page-id=0%3A1&embed-host=share"
-  },
-  {
-    id: "cs3",
-    title: "Isha Foundation",
-    description: "Centralized platform for spiritual awareness.",
-    image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?q=80&w=2070&auto=format&fit=crop",
-    category: "Social Impact",
-    size: "small",
-    tags: ["Spiritual", "Platform", "Community"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3281&p=f&viewport=764%2C2632%2C0.3&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A3281&page-id=989%3A3280&embed-host=share"
-  },
-  {
-    id: "cs4",
-    title: "TRAFORM",
-    description: "Corporate travel and expense management tool.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Enterprise", "SaaS", "Travel Management"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4394&viewport=642%2C4957%2C0.47&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A4394&page-id=989%3A4391&embed-host=share"
-  },
-  {
-    id: "cs5",
-    title: "FUNDSINDIA",
-    description: "Financial advisory and self-service investment portal.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Fintech", "Investment", "Portal"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4894&p=f&viewport=721%2C669%2C0.06&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A4894&page-id=989%3A4893&embed-host=share"
-  },
-  {
-    id: "cs6",
-    title: "TP Vision",
-    description: "Convert handwritten notes into digital text.",
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Productivity", "Digital Text", "UX"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=862-85&p=f&viewport=3079%2C5278%2C0.63&scaling=scale-down&content-scaling=fixed&starting-point-node-id=862%3A85&page-id=860%3A2&embed-host=share"
-  },
-  {
-    id: "cs7",
-    title: "Maventic",
-    description: "Upgrading cloud based ERP solutions for retail and sales management.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Retail", "ERP", "Sales Management"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-4787&p=f&viewport=881%2C810%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=816%3A4787&page-id=816%3A4786&embed-host=share"
-  },
-  {
-    id: "cs8",
-    title: "Jeevika",
-    description: "Empowering Street Vendors, Protecting Their Rights.",
-    image: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=2070&auto=format&fit=crop",
-    category: "Social Impact",
-    size: "small",
-    tags: ["Social Impact", "Empowerment", "Vendors"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=217-23355&viewport=2295%2C11031%2C0.34&scaling=scale-down&content-scaling=fixed&starting-point-node-id=217%3A23355&page-id=65%3A4000&embed-host=share"
-  },
-  {
-    id: "cs9",
-    title: "Mobicip",
-    description: "Introducing Parental controls without the drama.",
-    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop",
-    category: "EdTech",
-    size: "small",
-    tags: ["Parental Control", "Mobile App", "Family"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=3175-30339&p=f&viewport=623%2C7889%2C0.24&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3175%3A30339&page-id=5%3A3506&embed-host=share"
-  },
-  {
-    id: "cs10",
-    title: "HealthAsyst",
-    description: "Clinic Management portal for Data Analytics and Reports Processing in healthcare domain.",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
-    category: "Healthcare",
-    size: "small",
-    tags: ["Healthcare", "Data Analytics", "Portal"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-1174&p=f&viewport=659%2C516%2C0.03&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A1174&page-id=2%3A2&embed-host=share"
-  },
-  {
-    id: "cs11",
-    title: "Portico",
-    description: "Human Resource and Payroll Management Suite.",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Enterprise", "HR", "Payroll"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-2400&p=f&viewport=795%2C7905%2C0.49&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A2400&page-id=2%3A1727&embed-host=share"
-  },
-  {
-    id: "cs12",
-    title: "Angel Broking",
-    description: "A mutual fund investment and tracking application that helps anyone to be an investor.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Fintech", "Investment", "Mobile App"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-5569&p=f&viewport=789%2C9212%2C0.63&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A5569&page-id=2%3A3920&embed-host=share"
-  },
-  {
-    id: "cs13",
-    title: "Microsoft",
-    description: "Dynamics 365 is a product line of enterprise resource planning (ERP) and customer relationship management (CRM) applications.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    category: "Enterprise & Fintech",
-    size: "small",
-    tags: ["Enterprise", "ERP", "CRM"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-11215&p=f&viewport=726%2C4510%2C0.56&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A11215&page-id=2%3A11214&embed-host=share"
-  },
-  {
-    id: "cs14",
-    title: "Young Artiste",
-    description: "An art form learning application which provides real-time content and feedback.",
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop",
-    category: "EdTech",
-    size: "small",
-    tags: ["EdTech", "Learning App", "Art"],
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-21&p=f&viewport=623%2C8846%2C0.55&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A21&page-id=2%3A3&embed-host=share"
   }
 ];
