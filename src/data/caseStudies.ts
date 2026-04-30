@@ -1,41 +1,75 @@
 export interface CaseStudy {
   id: string;
   title: string;
-  category: 'User Research' | 'UX Design';
+  description: string;
   image: string;
+  prototypeUrl?: string;
+  tags: string[];
 }
 
-const generateImage = (title: string) => {
-  return `https://placehold.co/800x600/1a1a1a/ffffff?text=${encodeURIComponent(title)}&font=Montserrat`;
-};
-
 export const caseStudies: CaseStudy[] = [
-  // User Research
-  { id: "ur-1", title: "Rolling research", category: "User Research", image: generateImage("Rolling research") },
-  { id: "ur-2", title: "The journey of home renovation", category: "User Research", image: generateImage("The journey of home renovation") },
-  { id: "ur-3", title: "Mapping the farming ecosystem in India", category: "User Research", image: generateImage("Mapping the farming ecosystem in India") },
-  { id: "ur-4", title: "Testing seamless game play", category: "User Research", image: generateImage("Testing seamless game play") },
-  { id: "ur-5", title: "Capturing the Moment", category: "User Research", image: generateImage("Capturing the Moment") },
-
-  // UX Design
-  { id: "ux-1", title: "Redefining New Customer Lifecycle Management Product Line", category: "UX Design", image: generateImage("Redefining New Customer Lifecycle Management") },
-  { id: "ux-2", title: "How to Implement a Premium Content Subscription Model?", category: "UX Design", image: generateImage("Premium Content Subscription Model") },
-  { id: "ux-3", title: "Profits & the Planet", category: "UX Design", image: generateImage("Profits & the Planet") },
-  { id: "ux-4", title: "Revolutionizing Crop Management with Integrated Technology", category: "UX Design", image: generateImage("Crop Management Tech") },
-  { id: "ux-5", title: "Upgrading cloud-based ERP solutions for retail and sales management", category: "UX Design", image: generateImage("Cloud-based ERP Solutions") },
-  { id: "ux-6", title: "Designing a mobile app for Bajaj", category: "UX Design", image: generateImage("Mobile App for Bajaj") },
-  { id: "ux-7", title: "How to prepare your kids for a screen routine?", category: "UX Design", image: generateImage("Kids Screen Routine") },
-  { id: "ux-8", title: "Building a sleep app ecosystem for high athletic performance", category: "UX Design", image: generateImage("Sleep App Ecosystem") },
-  { id: "ux-9", title: "Designing an ENote Application", category: "UX Design", image: generateImage("ENote Application") },
-  { id: "ux-10", title: "Procurement through Gamification", category: "UX Design", image: generateImage("Procurement Gamification") },
-  { id: "ux-11", title: "Designing an Engaging Experience Flow for an Endoscopic Device", category: "UX Design", image: generateImage("Endoscopic Device Experience") },
-  { id: "ux-12", title: "Experience Transformation", category: "UX Design", image: generateImage("Experience Transformation") },
-  { id: "ux-13", title: "Redesigning the API Marketplace Experience", category: "UX Design", image: generateImage("API Marketplace Experience") },
-  { id: "ux-14", title: "Improving online ride-booking experience across demographics", category: "UX Design", image: generateImage("Ride-booking Experience") },
-  { id: "ux-15", title: "Healthasyst: Clinic Management Portal for Healthcare Data Analytics", category: "UX Design", image: generateImage("Healthasyst Portal") },
-  { id: "ux-16", title: "Empowering street vendors and protecting their rights", category: "UX Design", image: generateImage("Empowering Street Vendors") },
-  { id: "ux-17", title: "Human Resource and Payroll Management Suite", category: "UX Design", image: generateImage("HR & Payroll Management") },
-  { id: "ux-18", title: "New Computing for a New Era", category: "UX Design", image: generateImage("New Computing Era") },
-  { id: "ux-19", title: "Navigating Street Vendor Management with Ease", category: "UX Design", image: generateImage("Street Vendor Management") },
-  { id: "ux-20", title: "A Learning Platform for Music, Dance and Instruments", category: "UX Design", image: generateImage("Music & Dance Learning Platform") }
+  {
+    id: "1",
+    title: "Philips Hospitality TV",
+    description: "A centralized platform for managing large-scale display ecosystem.",
+    image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?page-id=3005%3A2&node-id=3005-9&p=f&viewport=377%2C-674%2C0.24&scaling=contain&content-scaling=fixed&starting-point-node-id=3005%3A9&embed-host=share",
+    tags: ["Enterprise", "Display Ecosystem", "Dashboard"]
+  },
+  {
+    id: "2",
+    title: "MINDSPARK",
+    description: "Personalised learning platform enabling children to meaningfully advance at their own pace.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32&scaling=contain&content-scaling=fixed&starting-point-node-id=65%3A3486&page-id=0%3A1&embed-host=share",
+    tags: ["EdTech", "Personalised Learning", "UX"]
+  },
+  {
+    id: "3",
+    title: "Biorad Enli8",
+    description: "Crafting a precision-focused solution for the video processing unit of the endoscope.",
+    image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=929-6237&p=f&viewport=-191%2C5218%2C0.49&scaling=contain&content-scaling=fixed&starting-point-node-id=929%3A6237&page-id=906%3A200&embed-host=share",
+    tags: ["Healthcare", "Medical UI", "Precision"]
+  },
+  {
+    id: "4",
+    title: "Mera Bajaj",
+    description: "Designing a mobile app to enhance the riding and after sales experience of Bajaj motorcycle owners.",
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=988-2889&p=f&viewport=272%2C859%2C0.03&scaling=contain&content-scaling=fixed&starting-point-node-id=988%3A2889&page-id=868%3A2&embed-host=share",
+    tags: ["Automotive", "Mobile App", "After-Sales"]
+  },
+  {
+    id: "5",
+    title: "Isha Foundation",
+    description: "Centralized platform for spiritual awareness.",
+    image: "https://images.unsplash.com/photo-1600618528240-fb9fc964b853?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3281&p=f&viewport=764%2C2632%2C0.3&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A3281&page-id=989%3A3280&embed-host=share",
+    tags: ["Spiritual", "Platform", "Community"]
+  },
+  {
+    id: "6",
+    title: "Biorad Quantino",
+    description: "Designing an Interactive and Digital Interface for a Thulium Fibre Laser Device.",
+    image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3578&p=f&viewport=715%2C4065%2C0.36&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A3578&page-id=989%3A3576&embed-host=share",
+    tags: ["Healthcare", "Digital Interface", "Laser Device"]
+  },
+  {
+    id: "7",
+    title: "TRAFORM",
+    description: "Corporate travel and expense management tool.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4394&viewport=642%2C4957%2C0.47&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A4394&page-id=989%3A4391&embed-host=share",
+    tags: ["Enterprise", "SaaS", "Travel Management"]
+  },
+  {
+    id: "8",
+    title: "FUNDSINDIA",
+    description: "Financial advisory and self-service investment portal.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2070&auto=format&fit=crop",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4894&p=f&viewport=721%2C669%2C0.06&scaling=contain&content-scaling=fixed&starting-point-node-id=989%3A4894&page-id=989%3A4893&embed-host=share",
+    tags: ["Fintech", "Investment", "Portal"]
+  }
 ];
