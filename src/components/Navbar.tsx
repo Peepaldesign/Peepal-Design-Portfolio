@@ -2,32 +2,15 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function Navbar() {
+interface NavbarProps {
+  activeSection: string;
+  setActiveSection: (id: string) => void;
+}
+
+export default function Navbar({ activeSection, setActiveSection }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    const sections = ["home", "work", "case-studies"];
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <nav className="glass" style={{ 
@@ -51,13 +34,16 @@ export default function Navbar() {
         alignItems: "center"
       }}>
         <div style={{ display: "flex", alignItems: "center" }}>
-          <a href="#home" style={{ display: "flex", alignItems: "center" }}>
+          <div 
+            onClick={() => setActiveSection("home")} 
+            style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+          >
             <img 
               src="https://peepaldesign.com/wp-content/uploads/2023/10/Logo3.png" 
               alt="Peepal Design" 
               style={{ height: "40px", objectFit: "contain" }} 
             />
-          </a>
+          </div>
         </div>
 
         <div style={{ display: "none", gap: "2.5rem", alignItems: "center" }} className="md-flex">
@@ -66,16 +52,19 @@ export default function Navbar() {
             { name: "Work", id: "work" },
             { name: "Case Studies", id: "case-studies" }
           ].map((item) => (
-            <a 
+            <button 
               key={item.name} 
-              href={`#${item.id}`} 
+              onClick={() => setActiveSection(item.id)}
               className="nav-link"
               style={{ 
+                background: "none",
+                border: "none",
+                padding: 0,
                 fontSize: "0.95rem", 
-                fontWeight: 400, 
+                fontWeight: activeSection === item.id ? 700 : 400, 
                 color: activeSection === item.id ? "var(--primary)" : "black",
                 transition: "color 0.3s ease",
-                textDecoration: "none",
+                cursor: "pointer",
                 display: "inline-flex",
                 flexDirection: "column",
                 alignItems: "center"
@@ -83,7 +72,7 @@ export default function Navbar() {
             >
               <span style={{ fontWeight: 700, visibility: "hidden", height: 0 }}>{item.name}</span>
               {item.name}
-            </a>
+            </button>
           ))}
           <div style={{ display: "flex", gap: "1rem" }}>
             <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
@@ -126,18 +115,25 @@ export default function Navbar() {
                 { name: "Work", id: "work" },
                 { name: "Case Studies", id: "case-studies" }
               ].map((item) => (
-                <a 
+                <button 
                   key={item.id} 
-                  href={`#${item.id}`} 
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setActiveSection(item.id);
+                    setIsOpen(false);
+                  }}
                   style={{ 
+                    background: "none",
+                    border: "none",
+                    textAlign: "left",
+                    padding: 0,
                     fontSize: "1.1rem", 
                     fontWeight: activeSection === item.id ? 700 : 400, 
-                    color: activeSection === item.id ? "var(--primary)" : "black" 
+                    color: activeSection === item.id ? "var(--primary)" : "black",
+                    cursor: "pointer"
                   }}
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
@@ -165,8 +161,7 @@ export default function Navbar() {
           .md-none { display: none !important; }
         }
         .nav-link:hover {
-          font-weight: 700 !important;
-          color: black !important;
+          color: var(--primary) !important;
         }
       `}</style>
     </nav>
