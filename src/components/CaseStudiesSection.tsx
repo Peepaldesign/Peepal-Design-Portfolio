@@ -6,7 +6,15 @@ import { X, ExternalLink } from "lucide-react";
 import { caseStudies, CaseStudy } from "@/data/caseStudies";
 
 export default function CaseStudiesSection() {
+  const [filter, setFilter] = useState<string>('All Case Studies');
   const [activePrototype, setActivePrototype] = useState<CaseStudy | null>(null);
+
+  // Dynamically extract categories from case studies data
+  const categories = ['All Case Studies', ...Array.from(new Set(caseStudies.map(p => p.category)))];
+
+  const filteredProjects = caseStudies.filter(p => 
+    filter === 'All Case Studies' ? true : p.category === filter
+  );
 
   return (
     <section id="case-studies" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
@@ -23,22 +31,58 @@ export default function CaseStudiesSection() {
         </p>
       </motion.div>
 
-      {/* Grid Layout */}
-      <motion.div 
-        style={{ 
-          display: "grid", 
-          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
-          gap: "1.5rem" 
-        }}
-        className="case-studies-grid"
-      >
-        {caseStudies.map((project) => (
-          <CaseStudyCard 
-            key={project.id} 
-            project={project} 
-            onVisitPrototype={() => setActivePrototype(project)}
-          />
+      {/* Dynamic Industry Tabs */}
+      <div style={{ 
+        display: "flex", 
+        flexWrap: "wrap",
+        gap: "0.75rem",
+        marginBottom: "3rem"
+      }}>
+        {categories.map((tab) => (
+          <button
+            key={tab}
+            onClick={() => setFilter(tab)}
+            style={{
+              padding: "0.75rem 1.5rem",
+              borderRadius: "12px",
+              border: filter === tab ? "none" : "1px solid rgba(0,0,0,0.1)",
+              background: filter === tab ? "var(--foreground)" : "transparent",
+              color: filter === tab ? "var(--background)" : "var(--foreground)",
+              fontWeight: 600,
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              fontSize: "0.9rem"
+            }}
+          >
+            {tab}
+          </button>
         ))}
+      </div>
+
+      {/* Grid Layout */}
+      <AnimatePresence mode="wait">
+        <motion.div 
+          key={filter}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
+            gap: "1.5rem" 
+          }}
+          className="case-studies-grid"
+        >
+          {filteredProjects.map((project) => (
+            <CaseStudyCard 
+              key={project.id} 
+              project={project} 
+              onVisitPrototype={() => setActivePrototype(project)}
+            />
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
         <style jsx>{`
           @media (min-width: 768px) {

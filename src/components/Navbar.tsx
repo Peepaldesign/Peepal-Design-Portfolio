@@ -85,7 +85,7 @@ export default function Navbar() {
             </a>
           ))}
           <div style={{ display: "flex", gap: "1rem" }}>
-            <a href="https://peepaldesign.com/work" target="_blank" rel="noopener noreferrer">
+            <a href="#case-studies">
               <button style={{ 
                 background: "transparent", 
                 color: "var(--foreground)", 
@@ -149,7 +149,7 @@ export default function Navbar() {
                 </a>
               ))}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <a href="https://peepaldesign.com/work" target="_blank" rel="noopener noreferrer">
+                <a href="#case-studies">
                   <button style={{ 
                     background: "transparent", 
                     color: "black", 
