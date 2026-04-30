@@ -20,7 +20,7 @@ export default function Navbar() {
       { threshold: 0.5 }
     );
 
-    const sections = ["home", "services", "work", "contact"];
+    const sections = ["home", "work", "case-studies"];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -63,7 +63,8 @@ export default function Navbar() {
         <div style={{ display: "none", gap: "2.5rem", alignItems: "center" }} className="md-flex">
           {[
             { name: "Home", id: "home" },
-            { name: "Work", id: "work" }
+            { name: "Work", id: "work" },
+            { name: "Case Studies", id: "case-studies" }
           ].map((item) => (
             <a 
               key={item.name} 
@@ -85,20 +86,6 @@ export default function Navbar() {
             </a>
           ))}
           <div style={{ display: "flex", gap: "1rem" }}>
-            <a href="#case-studies">
-              <button style={{ 
-                background: "transparent", 
-                color: "var(--foreground)", 
-                padding: "0.75rem 1.75rem", 
-                borderRadius: "12px", 
-                border: "1px solid var(--foreground)", 
-                fontWeight: 700, 
-                fontSize: "0.95rem",
-                cursor: "pointer"
-              }}>
-                Case Studies
-              </button>
-            </a>
             <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
               <button style={{ 
                 background: "var(--foreground)", 
@@ -134,34 +121,25 @@ export default function Navbar() {
             className="md-none"
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              {["Home", "Work"].map((item) => (
+              {[
+                { name: "Home", id: "home" },
+                { name: "Work", id: "work" },
+                { name: "Case Studies", id: "case-studies" }
+              ].map((item) => (
                 <a 
-                  key={item} 
-                  href={`#${item.toLowerCase()}`} 
+                  key={item.id} 
+                  href={`#${item.id}`} 
                   onClick={() => setIsOpen(false)}
                   style={{ 
                     fontSize: "1.1rem", 
-                    fontWeight: activeSection === item.toLowerCase() ? 700 : 400, 
-                    color: activeSection === item.toLowerCase() ? "var(--primary)" : "black" 
+                    fontWeight: activeSection === item.id ? 700 : 400, 
+                    color: activeSection === item.id ? "var(--primary)" : "black" 
                   }}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                <a href="#case-studies">
-                  <button style={{ 
-                    background: "transparent", 
-                    color: "black", 
-                    padding: "1rem", 
-                    borderRadius: "12px", 
-                    border: "1px solid black", 
-                    width: "100%", 
-                    fontWeight: 700 
-                  }}>
-                    Case Studies
-                  </button>
-                </a>
                 <a href="https://peepaldesign.com" target="_blank" rel="noopener noreferrer">
                   <button style={{ 
                     background: "black", 
