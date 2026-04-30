@@ -4,28 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
-import { caseStudies } from "@/data/caseStudies";
 
 export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
-  const [activeUrl, setActiveUrl] = useState<string | null>(null);
+  const [activePrototype, setActivePrototype] = useState<Project | null>(null);
 
-  // Merge projects and case studies for a master gallery
-  const allWork: Project[] = [
-    ...projects.map(p => ({ ...p, isCaseStudy: false })),
-    ...caseStudies
-      .filter(cs => !projects.some(p => p.title === cs.title)) // Avoid duplicates like Bajaj Chetak
-      .map(cs => ({
-        ...cs,
-        size: 'small' as const,
-        isCaseStudy: true
-      }))
-  ];
+  // Dynamically extract categories from project data
+  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
-  // Dynamically extract categories from both datasets
-  const categories = ['All', ...Array.from(new Set(allWork.map(p => p.category)))];
-
-  const filteredProjects = allWork.filter(p => 
+  const filteredProjects = projects.filter(p => 
     filter === 'All' ? true : p.category === filter
   );
 
@@ -96,7 +83,7 @@ export default function WorkSection() {
               key={project.id} 
               project={project} 
               isForcedSmall={isForcedSmall}
-              onOpenUrl={(url) => setActiveUrl(url)}
+              onVisitPrototype={() => setActivePrototype(project)}
             />
           ))}
         </motion.div>
@@ -104,7 +91,7 @@ export default function WorkSection() {
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>
-        {activeUrl && (
+        {activePrototype && (
           <div style={{ 
             position: "fixed", 
             top: 0, 
@@ -121,7 +108,7 @@ export default function WorkSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveUrl(null)}
+              onClick={() => setActivePrototype(null)}
               style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.9)", backdropFilter: "blur(10px)" }}
             />
             
@@ -140,7 +127,7 @@ export default function WorkSection() {
               }}
             >
               <button 
-                onClick={() => setActiveUrl(null)}
+                onClick={() => setActivePrototype(null)}
                 style={{ 
                   position: "absolute", 
                   top: "1.5rem", 
@@ -161,7 +148,7 @@ export default function WorkSection() {
               </button>
               
               <iframe 
-                src={activeUrl}
+                src={activePrototype.prototypeUrl}
                 style={{ width: "100%", height: "100%", border: "none" }}
                 allowFullScreen
               />
@@ -173,7 +160,7 @@ export default function WorkSection() {
   );
 }
 
-function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, isForcedSmall: boolean, onOpenUrl: (url: string) => void }) {
+function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Project, isForcedSmall: boolean, onVisitPrototype: () => void }) {
   const isLarge = project.size === 'large' && !isForcedSmall;
 
   return (
@@ -232,101 +219,40 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
           fontSize: "0.95rem", 
           color: "rgba(255,255,255,0.75)", 
           lineHeight: 1.5, 
-          marginBottom: (project.prototypeUrl || project.caseStudyUrl) ? "1.5rem" : 0,
+          marginBottom: project.prototypeUrl ? "1.5rem" : 0,
           display: "-webkit-box",
           WebkitLineClamp: isLarge ? 3 : 2,
           WebkitBoxOrient: "vertical",
           overflow: "hidden"
         }}>{project.description}</p>
         
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          {/* Only show "Visit Prototype" for primary projects, not standalone case studies */}
-          {project.prototypeUrl && !project.isCaseStudy && (
-            <motion.button
-              whileHover={{ scale: 1.05, background: "var(--primary)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (project.prototypeUrl) onOpenUrl(project.prototypeUrl);
-              }}
-              style={{
-                alignSelf: "flex-start",
-                padding: "0.6rem 1.2rem",
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "white",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                backdropFilter: "blur(8px)"
-              }}
-            >
-              Visit Prototype <ExternalLink size={14} />
-            </motion.button>
-          )}
-
-          {/* Show "View Case Study" if a specific caseStudyUrl exists (for merged cards) */}
-          {project.caseStudyUrl && (
-            <motion.button
-              whileHover={{ scale: 1.05, background: "var(--primary)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (project.caseStudyUrl) onOpenUrl(project.caseStudyUrl);
-              }}
-              style={{
-                alignSelf: "flex-start",
-                padding: "0.6rem 1.2rem",
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "white",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                backdropFilter: "blur(8px)"
-              }}
-            >
-              View Case Study <ExternalLink size={14} />
-            </motion.button>
-          )}
-
-          {/* For standalone case studies, use the prototypeUrl but label it as Case Study */}
-          {project.isCaseStudy && !project.caseStudyUrl && project.prototypeUrl && (
-            <motion.button
-              whileHover={{ scale: 1.05, background: "var(--primary)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                if (project.prototypeUrl) onOpenUrl(project.prototypeUrl);
-              }}
-              style={{
-                alignSelf: "flex-start",
-                padding: "0.6rem 1.2rem",
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "white",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                backdropFilter: "blur(8px)"
-              }}
-            >
-              View Case Study <ExternalLink size={14} />
-            </motion.button>
-          )}
-        </div>
+        {project.prototypeUrl && (
+          <motion.button
+            whileHover={{ scale: 1.05, background: "var(--primary)" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={(e) => {
+              e.stopPropagation();
+              onVisitPrototype();
+            }}
+            style={{
+              alignSelf: "flex-start",
+              padding: "0.6rem 1.2rem",
+              borderRadius: "100px",
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.2)",
+              color: "white",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              cursor: "pointer",
+              backdropFilter: "blur(8px)"
+            }}
+          >
+            Visit Prototype <ExternalLink size={14} />
+          </motion.button>
+        )}
       </div>
 
       <style jsx>{`

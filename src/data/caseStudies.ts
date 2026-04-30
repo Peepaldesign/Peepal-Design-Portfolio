@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "mera-bajaj",
-    title: "Mera Bajaj / Connect",
+    title: "Mera Bajaj",
     description: "Designing a mobile app to enhance the riding and after sales experience of Bajaj motorcycle owners.",
     image: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800",
     category: "Automotive",
@@ -101,7 +101,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "rem42-case",
-    title: "Rem42",
+    title: "REM42",
     description: "A sleep app ecosystem for high athletic performance.",
     image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=800",
     category: "Healthcare",
