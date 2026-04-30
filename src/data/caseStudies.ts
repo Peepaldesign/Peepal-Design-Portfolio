@@ -101,7 +101,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     id: "rem42-case",
-    title: "REM42",
+    title: "Rem42",
     description: "A sleep app ecosystem for high athletic performance.",
     image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=800",
     category: "Healthcare",
