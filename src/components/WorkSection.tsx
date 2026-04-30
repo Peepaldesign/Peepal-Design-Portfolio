@@ -4,15 +4,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
+import { caseStudies } from "@/data/caseStudies";
 
 export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
   const [activePrototype, setActivePrototype] = useState<Project | null>(null);
 
-  // Dynamically extract categories from project data
-  const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+  // Merge projects and case studies for a master gallery
+  const allWork = [
+    ...projects.map(p => ({ ...p, isCaseStudy: false })),
+    ...caseStudies.map(cs => ({
+      ...cs,
+      size: 'small' as const,
+      isCaseStudy: true
+    }))
+  ];
 
-  const filteredProjects = projects.filter(p => 
+  // Dynamically extract categories from both datasets
+  const categories = ['All', ...Array.from(new Set(allWork.map(p => p.category)))];
+
+  const filteredProjects = allWork.filter(p => 
     filter === 'All' ? true : p.category === filter
   );
 
@@ -250,7 +261,7 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
               backdropFilter: "blur(8px)"
             }}
           >
-            Visit Prototype <ExternalLink size={14} />
+            {(project as any).isCaseStudy ? "View Case Study" : "Visit Prototype"} <ExternalLink size={14} />
           </motion.button>
         )}
       </div>
