@@ -3,10 +3,11 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  category: 'Automotive' | 'Healthcare' | 'Industrial & Agri-Tech' | 'Enterprise & Fintech' | 'EdTech';
+  category: string;
   size: 'small' | 'large';
   tags: string[];
   prototypeUrl?: string;
+  isCaseStudy?: boolean;
 }
 
 const dummyProto = "https://embed.figma.com/proto/IdKktdDvGvQvaYIYDEVNT4/01_Enli8-VPU-GUI---Design?node-id=844-27066&p=f&viewport=-145%2C1210%2C0.02&scaling=contain&content-scaling=fixed&starting-point-node-id=816%3A28881&show-proto-sidebar=1&page-id=1%3A13&embed-host=share";

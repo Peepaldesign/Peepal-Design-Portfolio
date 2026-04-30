@@ -11,7 +11,7 @@ export default function WorkSection() {
   const [activePrototype, setActivePrototype] = useState<Project | null>(null);
 
   // Merge projects and case studies for a master gallery
-  const allWork = [
+  const allWork: Project[] = [
     ...projects.map(p => ({ ...p, isCaseStudy: false })),
     ...caseStudies.map(cs => ({
       ...cs,
@@ -261,7 +261,7 @@ function ProjectCard({ project, isForcedSmall, onVisitPrototype }: { project: Pr
               backdropFilter: "blur(8px)"
             }}
           >
-            {(project as any).isCaseStudy ? "View Case Study" : "Visit Prototype"} <ExternalLink size={14} />
+            {project.isCaseStudy ? "View Case Study" : "Visit Prototype"} <ExternalLink size={14} />
           </motion.button>
         )}
       </div>
