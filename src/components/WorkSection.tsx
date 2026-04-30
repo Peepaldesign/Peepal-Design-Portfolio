@@ -240,7 +240,8 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
         }}>{project.description}</p>
         
         <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          {project.prototypeUrl && (
+          {/* Only show "Visit Prototype" for primary projects, not standalone case studies */}
+          {project.prototypeUrl && !project.isCaseStudy && (
             <motion.button
               whileHover={{ scale: 1.05, background: "var(--primary)" }}
               whileTap={{ scale: 0.95 }}
@@ -268,6 +269,7 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
             </motion.button>
           )}
 
+          {/* Show "View Case Study" if a specific caseStudyUrl exists (for merged cards) */}
           {project.caseStudyUrl && (
             <motion.button
               whileHover={{ scale: 1.05, background: "var(--primary)" }}
@@ -296,7 +298,8 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
             </motion.button>
           )}
 
-          {!project.caseStudyUrl && project.isCaseStudy && (
+          {/* For standalone case studies, use the prototypeUrl but label it as Case Study */}
+          {project.isCaseStudy && !project.caseStudyUrl && project.prototypeUrl && (
             <motion.button
               whileHover={{ scale: 1.05, background: "var(--primary)" }}
               whileTap={{ scale: 0.95 }}
