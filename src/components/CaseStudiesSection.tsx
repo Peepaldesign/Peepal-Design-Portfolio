@@ -110,7 +110,6 @@ export default function CaseStudiesSection() {
             -webkit-line-clamp: 2 !important;
           }
         `}</style>
-      </motion.div>
 
       {/* Figma Prototype Modal */}
       <AnimatePresence>
