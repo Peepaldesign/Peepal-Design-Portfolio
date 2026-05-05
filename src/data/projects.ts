@@ -175,7 +175,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["ERP", "Cloud", "Retail"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-16785&p=f&viewport=2910%2C4730%2C0.19&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A16785&page-id=1052%3A12505&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-4787&p=f&viewport=881%2C810%2C0.08&scaling=scale-down&content-scaling=fixed&starting-point-node-id=816%3A4787&page-id=816%3A4786&embed-host=share"
   },
   {
     id: "jeevika",
@@ -185,7 +185,7 @@ export const projects: Project[] = [
     category: "Social Impact" as any,
     size: "small",
     tags: ["Mobile App", "Social Justice"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-25916&p=f&viewport=3145%2C5082%2C0.19&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A25916&page-id=1052%3A21946&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=217-23355&viewport=2295%2C11031%2C0.34&scaling=scale-down&content-scaling=fixed&starting-point-node-id=217%3A23355&page-id=65%3A4000&embed-host=share"
   },
   {
     id: "mobicip",
@@ -195,7 +195,7 @@ export const projects: Project[] = [
     category: "EdTech",
     size: "small",
     tags: ["Parental Control", "Safety", "Mobile"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-40455&p=f&viewport=4069%2C4977%2C0.18&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A40455&page-id=1052%3A36440&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=3175-30339&p=f&viewport=623%2C7889%2C0.24&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3175%3A30339&page-id=5%3A3506&embed-host=share"
   },
   {
     id: "healthasyst",
@@ -205,7 +205,7 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["Clinic Management", "Data Analytics"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-49132&p=f&viewport=4145%2C5162%2C0.21&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A49132&page-id=1052%3A46580&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-1174&p=f&viewport=659%2C516%2C0.03&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A1174&page-id=2%3A2&embed-host=share"
   },
   {
     id: "portico",
@@ -215,7 +215,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["HRMS", "Payroll", "B2B"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-59155&p=f&viewport=4450%2C5100%2C0.15&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A59155&page-id=1052%3A54784&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-2400&p=f&viewport=795%2C7905%2C0.49&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A2400&page-id=2%3A1727&embed-host=share"
   },
   {
     id: "angel-broking",
@@ -225,7 +225,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Investment", "Mobile App", "Stock Market"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-65625&p=f&viewport=4628%2C5300%2C0.18&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A65625&page-id=1052%3A62846&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-5569&p=f&viewport=789%2C9212%2C0.63&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A5569&page-id=2%3A3920&embed-host=share"
   },
   {
     id: "microsoft-case",
@@ -235,7 +235,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["ERP", "CRM", "Enterprise"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-73010&p=f&viewport=4980%2C5420%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A73010&page-id=1052%3A70258&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-11215&p=f&viewport=726%2C4510%2C0.56&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A11215&page-id=2%3A11214&embed-host=share"
   },
   {
     id: "young-artiste",
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     category: "EdTech",
     size: "small",
     tags: ["Art Learning", "Feedback", "Mobile"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-82260&p=f&viewport=5320%2C5230%2C0.16&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A82260&page-id=1052%3A79426&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2-21&p=f&viewport=623%2C8846%2C0.55&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2%3A21&page-id=2%3A3&embed-host=share"
   },
   {
     id: "philips-hospitality",
@@ -265,7 +265,7 @@ export const projects: Project[] = [
     category: "EdTech",
     size: "small",
     tags: ["Learning", "K-12", "Adaptive"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=65%3A3486&page-id=0%3A1&embed-host=share"
   },
   {
     id: "isha-foundation",
@@ -275,7 +275,7 @@ export const projects: Project[] = [
     category: "Social Impact" as any,
     size: "small",
     tags: ["Web Portal", "Non-Profit"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-16&p=f&viewport=2450%2C4670%2C0.67"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3281&p=f&viewport=764%2C2632%2C0.3&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A3281&page-id=989%3A3280&embed-host=share"
   },
   {
     id: "traform",
@@ -285,7 +285,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Expense Management", "Fintech"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-20993&p=f&viewport=2311%2C3843%2C0.21"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4394&viewport=642%2C4957%2C0.47&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A4394&page-id=989%3A4391&embed-host=share"
   },
   {
     id: "fundsindia",
@@ -295,6 +295,6 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Investment", "Portfolio Management"],
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-23746&p=f&viewport=2523%2C4258%2C0.21"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4894&p=f&viewport=721%2C669%2C0.06&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A4894&page-id=989%3A4893&embed-host=share"
   }
 ];
