@@ -10,78 +10,6 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: "philips-hospitality",
-    title: "Philips Hospitality TV",
-    description: "A centralized platform for managing large-scale display ecosystem",
-    image: "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80&w=800",
-    category: "Enterprise & Productivity",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?page-id=3005%3A2&node-id=3005-9&p=f&viewport=377%2C-674%2C0.24&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=3005%3A9&embed-host=share",
-    tags: ["SaaS", "Dashboard", "IoT"]
-  },
-  {
-    id: "mindspark",
-    title: "MINDSPARK",
-    description: "Personalised learning platform enabling children to meaningfully advance at their own pace.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
-    category: "EdTech",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32",
-    tags: ["Learning", "K-12", "Adaptive"]
-  },
-  {
-    id: "biorad-enli8",
-    title: "Biorad Enli8",
-    description: "Crafting a precision-focused solution for the video processing unit of the endoscope.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
-    category: "Healthcare",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=639-651&p=f&viewport=2040%2C3843%2C0.58",
-    tags: ["Medical", "UI Design", "Industrial"]
-  },
-  {
-    id: "mera-bajaj",
-    title: "Mera Bajaj",
-    description: "Designing a mobile app to enhance the riding and after sales experience of Bajaj motorcycle owners.",
-    image: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800",
-    category: "Automotive",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2372-8700&p=f&viewport=2062%2C3241%2C0.34",
-    tags: ["Mobile App", "Service Design", "Automotive"]
-  },
-  {
-    id: "isha-foundation",
-    title: "Isha Foundation",
-    description: "Centralized platform for spiritual awareness.",
-    image: "https://images.unsplash.com/photo-1545208393-596371ba9a3c?auto=format&fit=crop&q=80&w=800",
-    category: "Social Impact",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-16&p=f&viewport=2450%2C4670%2C0.67",
-    tags: ["Web Portal", "Non-Profit"]
-  },
-  {
-    id: "biorad-quantino",
-    title: "Biorad Quantino",
-    description: "Designing an Interactive and Digital Interface for a Thulium Fibre Laser Device.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800",
-    category: "Healthcare",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=336-399&p=f&viewport=1150%2C4000%2C0.45",
-    tags: ["Medical Device", "HMI"]
-  },
-  {
-    id: "traform",
-    title: "TRAFORM",
-    description: "Corporate travel and expense management tool.",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80&w=800",
-    category: "Enterprise & Productivity",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-20993&p=f&viewport=2311%2C3843%2C0.21",
-    tags: ["Expense Management", "Fintech"]
-  },
-  {
-    id: "fundsindia",
-    title: "FUNDSINDIA",
-    description: "Financial advisory and self-service investment portal.",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800",
-    category: "Fintech",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-23746&p=f&viewport=2523%2C4258%2C0.21",
-    tags: ["Investment", "Portfolio Management"]
-  },
-  {
     id: "tp-vision",
     title: "TP Vision",
     description: "Convert handwritten notes into digital text.",
@@ -89,33 +17,6 @@ export const caseStudies: CaseStudy[] = [
     category: "Enterprise & Productivity",
     prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=862-85&p=f&viewport=3079%2C5278%2C0.63&scaling=scale-down&content-scaling=fixed&starting-point-node-id=862%3A85&page-id=860%3A2&embed-host=share",
     tags: ["AI", "OCR", "Productivity"]
-  },
-  {
-    id: "bajaj-chetak",
-    title: "Bajaj Chetak",
-    description: "A unique interface for the Chetak EV speedometer / Info-meter which is classy, highly consumable, user-friendly to operate, and attractive to use.",
-    image: "https://images.unsplash.com/photo-1558981403-c5f91cbba527?auto=format&fit=crop&q=80&w=800",
-    category: "Automotive",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=859-14&p=f&viewport=512%2C2728%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=859%3A14&page-id=859%3A2&embed-host=share",
-    tags: ["EV", "HMI", "Dashboard"]
-  },
-  {
-    id: "rem42-case",
-    title: "REM42",
-    description: "A sleep app ecosystem for high athletic performance.",
-    image: "https://images.unsplash.com/photo-1541480601022-2308c0f02487?auto=format&fit=crop&q=80&w=800",
-    category: "Healthcare",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=858-20&p=f&viewport=2169%2C4746%2C0.21&scaling=scale-down&content-scaling=fixed&starting-point-node-id=858%3A20&page-id=858%3A2&embed-host=share",
-    tags: ["Sleep Tech", "Athletic", "Health"]
-  },
-  {
-    id: "milestone-internet-case",
-    title: "Milestone Internet",
-    description: "Transforming a Legacy Enterprise Software Into Customer Facing SAAS Platform.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
-    category: "Enterprise & Productivity",
-    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-12502&p=f&viewport=2609%2C4980%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A12502&page-id=1052%3A2&embed-host=share",
-    tags: ["SaaS", "Transformation", "UI/UX"]
   },
   {
     id: "maventic",
@@ -188,5 +89,50 @@ export const caseStudies: CaseStudy[] = [
     category: "EdTech",
     prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-82260&p=f&viewport=5320%2C5230%2C0.16&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1052%3A82260&page-id=1052%3A79426&embed-host=share",
     tags: ["Art Learning", "Feedback", "Mobile"]
+  },
+  {
+    id: "philips-hospitality",
+    title: "Philips Hospitality TV",
+    description: "A centralized platform for managing large-scale display ecosystem",
+    image: "https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?auto=format&fit=crop&q=80&w=800",
+    category: "Enterprise & Productivity",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?page-id=3005%3A2&node-id=3005-9&p=f&viewport=377%2C-674%2C0.24&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=3005%3A9&embed-host=share",
+    tags: ["SaaS", "Dashboard", "IoT"]
+  },
+  {
+    id: "mindspark",
+    title: "MINDSPARK",
+    description: "Personalised learning platform enabling children to meaningfully advance at their own pace.",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800",
+    category: "EdTech",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=65-3486&p=f&viewport=2617%2C4359%2C0.32",
+    tags: ["Learning", "K-12", "Adaptive"]
+  },
+  {
+    id: "isha-foundation",
+    title: "Isha Foundation",
+    description: "Centralized platform for spiritual awareness.",
+    image: "https://images.unsplash.com/photo-1545208393-596371ba9a3c?auto=format&fit=crop&q=80&w=800",
+    category: "Social Impact",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=1052-16&p=f&viewport=2450%2C4670%2C0.67",
+    tags: ["Web Portal", "Non-Profit"]
+  },
+  {
+    id: "traform",
+    title: "TRAFORM",
+    description: "Corporate travel and expense management tool.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80&w=800",
+    category: "Enterprise & Productivity",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-20993&p=f&viewport=2311%2C3843%2C0.21",
+    tags: ["Expense Management", "Fintech"]
+  },
+  {
+    id: "fundsindia",
+    title: "FUNDSINDIA",
+    description: "Financial advisory and self-service investment portal.",
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800",
+    category: "Fintech",
+    prototypeUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=2311-23746&p=f&viewport=2523%2C4258%2C0.21",
+    tags: ["Investment", "Portfolio Management"]
   }
 ];
