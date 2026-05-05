@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import WorkSection from "@/components/WorkSection";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
 import Footer from "@/components/Footer";
 import ThreadBackground from "@/components/ThreadBackground";
 
@@ -105,7 +104,6 @@ export default function Home() {
       {/* Main Content */}
       <div>
         <WorkSection />
-        <CaseStudiesSection />
         <Footer />
       </div>
     </main>
