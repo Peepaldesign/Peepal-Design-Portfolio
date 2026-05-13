@@ -330,6 +330,7 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Service Design", "Mobile App", "Logistics"],
-    longDescription: "Designing a seamless, end-to-end service ecosystem for PockIT, covering both the customer experience and the technician-side app. It streamlined the repair journey—from booking and on-site inspection to verified quotes, spare part approval, repair execution, and payment—while ensuring data safety and clear communication. The technician app enabled efficient diagnostics, adherence to standardized rate cards, and structured workflows for service delivery. The solution emphasized trust through expert-validated pricing and a robust warranty system with hassle-free claims, aiming to deliver a reliable, transparent, and user-centric repair experience."
+    longDescription: "Designing a seamless, end-to-end service ecosystem for PockIT, covering both the customer experience and the technician-side app. It streamlined the repair journey—from booking and on-site inspection to verified quotes, spare part approval, repair execution, and payment—while ensuring data safety and clear communication. The technician app enabled efficient diagnostics, adherence to standardized rate cards, and structured workflows for service delivery. The solution emphasized trust through expert-validated pricing and a robust warranty system with hassle-free claims, aiming to deliver a reliable, transparent, and user-centric repair experience.",
+    prototypeUrl: "https://embed.figma.com/proto/8A3pACA3jtxNqYoGTXXNQK/04_Customer-App?node-id=2632-44465&viewport=-1%2C930%2C0.12&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2632%3A44465&page-id=1%3A4&embed-host=share"
   }
 ];

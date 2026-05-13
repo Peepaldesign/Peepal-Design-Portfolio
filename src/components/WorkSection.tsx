@@ -71,11 +71,8 @@ export default function WorkSection() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           style={{ 
             display: "grid", 
-            // Dynamic grid: Bento for 'All', 3-column minmax for others
-            gridTemplateColumns: filter === 'All' 
-              ? "repeat(auto-fill, minmax(300px, 1fr))" 
-              : "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
-            gridAutoRows: filter === 'All' ? "300px" : "300px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 350px), 1fr))",
+            gridAutoRows: "350px",
             gap: "1.5rem" 
           }}
         >
@@ -83,7 +80,6 @@ export default function WorkSection() {
             <ProjectCard 
               key={project.id} 
               project={project} 
-              isForcedSmall={isForcedSmall}
               onClick={() => setSelectedProject(project)}
             />
           ))}
@@ -370,17 +366,15 @@ export default function WorkSection() {
   );
 }
 
-function ProjectCard({ project, isForcedSmall, onClick }: { project: Project, isForcedSmall: boolean, onClick: () => void }) {
-  const isLarge = project.size === 'large' && !isForcedSmall;
-
+function ProjectCard({ project, onClick }: { project: Project, onClick: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
       style={{
-        gridColumn: isLarge ? "span 2" : "span 1",
-        gridRow: isLarge ? "span 2" : "span 1",
+        gridColumn: "span 1",
+        gridRow: "span 1",
         position: "relative",
         borderRadius: "24px",
         overflow: "hidden",
@@ -425,13 +419,13 @@ function ProjectCard({ project, isForcedSmall, onClick }: { project: Project, is
             </span>
           ))}
         </div>
-        <h3 style={{ fontSize: isLarge ? "2rem" : "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#ffffff" }}>{project.title}</h3>
+        <h3 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "0.5rem", color: "#ffffff" }}>{project.title}</h3>
         <p style={{ 
           fontSize: "0.95rem", 
           color: "rgba(255,255,255,0.75)", 
           lineHeight: 1.5, 
           display: "-webkit-box",
-          WebkitLineClamp: isLarge ? 3 : 2,
+          WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
           overflow: "hidden"
         }}>{project.description}</p>
