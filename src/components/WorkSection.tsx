@@ -208,6 +208,7 @@ export default function WorkSection() {
                 padding: "2rem 3rem", 
                 borderTop: "1px solid #f3f4f6",
                 display: "flex",
+                flexWrap: "wrap",
                 gap: "1rem",
                 background: "#fafafa"
               }}>
@@ -219,7 +220,8 @@ export default function WorkSection() {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setActiveUrl(btn.url)}
                       style={{
-                        flex: 1,
+                        flex: "1 1 calc(33.33% - 1rem)",
+                        minWidth: "200px",
                         padding: "1rem",
                         borderRadius: "16px",
                         background: idx === 0 ? "var(--foreground)" : "white",
@@ -245,7 +247,8 @@ export default function WorkSection() {
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
                         style={{
-                          flex: 1,
+                          flex: "1 1 200px",
+                          minWidth: "150px",
                           padding: "1rem",
                           borderRadius: "16px",
                           background: "var(--foreground)",
@@ -270,7 +273,8 @@ export default function WorkSection() {
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
                         style={{
-                          flex: 1,
+                          flex: "1 1 200px",
+                          minWidth: "150px",
                           padding: "1rem",
                           borderRadius: "16px",
                           background: "white",
