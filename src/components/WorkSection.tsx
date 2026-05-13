@@ -8,6 +8,7 @@ import { projects, Project } from "@/data/projects";
 export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   // Dynamically extract categories from project data
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
@@ -83,10 +84,167 @@ export default function WorkSection() {
               key={project.id} 
               project={project} 
               isForcedSmall={isForcedSmall}
-              onOpenUrl={(url) => setActiveUrl(url)}
+              onClick={() => setSelectedProject(project)}
             />
           ))}
         </motion.div>
+      </AnimatePresence>
+
+      {/* Details Dialog Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <div style={{ 
+            position: "fixed", 
+            top: 0, 
+            left: 0, 
+            width: "100vw", 
+            height: "100vh", 
+            zIndex: 1100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "2rem"
+          }}>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedProject(null)}
+              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.8)", backdropFilter: "blur(12px)" }}
+            />
+            
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              style={{ 
+                position: "relative", 
+                width: "100%",
+                maxWidth: "800px",
+                maxHeight: "85vh",
+                background: "white", 
+                borderRadius: "32px", 
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)"
+              }}
+            >
+              <button 
+                onClick={() => setSelectedProject(null)}
+                style={{ 
+                  position: "absolute", 
+                  top: "1.5rem", 
+                  right: "1.5rem", 
+                  zIndex: 10,
+                  background: "#f3f4f6",
+                  border: "none",
+                  borderRadius: "50%",
+                  width: "40px",
+                  height: "40px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  color: "black"
+                }}
+              >
+                <X size={20} />
+              </button>
+
+              <div style={{ flex: 1, overflowY: "auto", padding: "3rem" }}>
+                <h2 style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "1.5rem", color: "#111827" }}>{selectedProject.title}</h2>
+                
+                <div style={{ display: "flex", gap: "0.75rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+                  {selectedProject.tags.map(tag => (
+                    <span key={tag} style={{ 
+                      fontSize: "0.75rem", 
+                      background: "#f3f4f6", 
+                      padding: "0.4rem 1rem", 
+                      borderRadius: "100px",
+                      border: "1px solid #e5e7eb",
+                      color: "#4b5563",
+                      fontWeight: 600
+                    }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "1.1rem" }}>
+                  <h4 style={{ color: "#111827", marginBottom: "0.75rem", fontWeight: 700 }}>Project Context</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+                  </p>
+                  <p style={{ marginTop: "1rem" }}>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+                  </p>
+                  <p style={{ marginTop: "1rem" }}>
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ 
+                padding: "2rem 3rem", 
+                borderTop: "1px solid #f3f4f6",
+                display: "flex",
+                gap: "1rem",
+                background: "#fafafa"
+              }}>
+                {selectedProject.caseStudyUrl && (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
+                    style={{
+                      flex: 1,
+                      padding: "1rem",
+                      borderRadius: "16px",
+                      background: "var(--foreground)",
+                      border: "none",
+                      color: "var(--background)",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.75rem",
+                      cursor: "pointer"
+                    }}
+                  >
+                    View Case Study <ExternalLink size={18} />
+                  </motion.button>
+                )}
+
+                {selectedProject.prototypeUrl && (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
+                    style={{
+                      flex: 1,
+                      padding: "1rem",
+                      borderRadius: "16px",
+                      background: "white",
+                      border: "2px solid #e5e7eb",
+                      color: "#111827",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.75rem",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Visit Prototype <ExternalLink size={18} />
+                  </motion.button>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
       </AnimatePresence>
 
       {/* Figma Prototype Modal */}
@@ -98,7 +256,7 @@ export default function WorkSection() {
             left: 0, 
             width: "100vw", 
             height: "100vh", 
-            zIndex: 1000,
+            zIndex: 2000,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -109,7 +267,7 @@ export default function WorkSection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveUrl(null)}
-              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.9)", backdropFilter: "blur(10px)" }}
+              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.95)", backdropFilter: "blur(10px)" }}
             />
             
             <motion.div 
@@ -160,7 +318,7 @@ export default function WorkSection() {
   );
 }
 
-function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, isForcedSmall: boolean, onOpenUrl: (url: string) => void }) {
+function ProjectCard({ project, isForcedSmall, onClick }: { project: Project, isForcedSmall: boolean, onClick: () => void }) {
   const isLarge = project.size === 'large' && !isForcedSmall;
 
   return (
@@ -174,10 +332,8 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
         position: "relative",
         borderRadius: "24px",
         overflow: "hidden",
-        cursor: "pointer",
-        background: "#f3f4f6"
-      }}
-    >
+      onClick={onClick}
+      style={{
       <img 
         src={project.image} 
         alt={project.title} 
@@ -219,68 +375,11 @@ function ProjectCard({ project, isForcedSmall, onOpenUrl }: { project: Project, 
           fontSize: "0.95rem", 
           color: "rgba(255,255,255,0.75)", 
           lineHeight: 1.5, 
-          marginBottom: project.prototypeUrl ? "1.5rem" : 0,
           display: "-webkit-box",
           WebkitLineClamp: isLarge ? 3 : 2,
           WebkitBoxOrient: "vertical",
           overflow: "hidden"
         }}>{project.description}</p>
-        
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
-          {project.caseStudyUrl && (
-            <motion.button
-              whileHover={{ scale: 1.05, background: "var(--primary)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenUrl(project.caseStudyUrl!);
-              }}
-              style={{
-                padding: "0.6rem 1.2rem",
-                borderRadius: "100px",
-                background: "var(--foreground)",
-                border: "none",
-                color: "var(--background)",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                backdropFilter: "blur(8px)"
-              }}
-            >
-              View Case Study <ExternalLink size={14} />
-            </motion.button>
-          )}
-
-          {project.prototypeUrl && (
-            <motion.button
-              whileHover={{ scale: 1.05, background: "rgba(255,255,255,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={(e) => {
-                e.stopPropagation();
-                onOpenUrl(project.prototypeUrl!);
-              }}
-              style={{
-                padding: "0.6rem 1.2rem",
-                borderRadius: "100px",
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.2)",
-                color: "white",
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                cursor: "pointer",
-                backdropFilter: "blur(8px)"
-              }}
-            >
-              Visit Prototype <ExternalLink size={14} />
-            </motion.button>
-          )}
-        </div>
       </div>
 
       <style jsx>{`
