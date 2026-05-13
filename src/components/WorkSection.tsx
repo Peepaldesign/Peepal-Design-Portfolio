@@ -313,7 +313,7 @@ export default function WorkSection() {
             display: "flex", 
             alignItems: "center", 
             justifyContent: "center", 
-            zIndex: 1000 
+            zIndex: 2000 
           }}>
             <motion.div 
               initial={{ opacity: 0 }}
@@ -337,7 +337,7 @@ export default function WorkSection() {
                 background: "#1e1e1e", 
                 borderRadius: "24px",
                 overflow: "hidden",
-                zIndex: 1001,
+                zIndex: 2001,
                 display: "flex",
                 flexDirection: "column"
               }}
@@ -361,7 +361,7 @@ export default function WorkSection() {
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  zIndex: 1002
+                  zIndex: 2002
                 }}
               >
                 <X size={24} />
