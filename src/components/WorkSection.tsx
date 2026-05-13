@@ -313,7 +313,7 @@ export default function WorkSection() {
             display: "flex", 
             alignItems: "center", 
             justifyContent: "center", 
-            zIndex: 2000 
+            zIndex: 1000 
           }}>
             <motion.div 
               initial={{ opacity: 0 }}
@@ -337,7 +337,7 @@ export default function WorkSection() {
                 background: "#1e1e1e", 
                 borderRadius: "24px",
                 overflow: "hidden",
-                zIndex: 2001,
+                zIndex: 1001,
                 display: "flex",
                 flexDirection: "column"
               }}
@@ -361,7 +361,7 @@ export default function WorkSection() {
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  zIndex: 2002
+                  zIndex: 1002
                 }}
               >
                 <X size={24} />
@@ -378,22 +378,26 @@ export default function WorkSection() {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#1e1e1e",
-                  gap: "1rem",
-                  color: "white"
+                  background: "#121212",
+                  gap: "1.5rem",
+                  color: "white",
+                  zIndex: 10
                 }}>
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
                     style={{
-                      width: "40px",
-                      height: "40px",
-                      border: "3px solid rgba(255,255,255,0.1)",
-                      borderTopColor: "white",
+                      width: "50px",
+                      height: "50px",
+                      border: "4px solid rgba(255,255,255,0.1)",
+                      borderTopColor: "#3b82f6",
                       borderRadius: "50%"
                     }}
                   />
-                  <span style={{ fontSize: "0.9rem", opacity: 0.7 }}>Loading Prototype...</span>
+                  <div style={{ textAlign: "center" }}>
+                    <span style={{ fontSize: "1.1rem", fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Loading Prototype</span>
+                    <span style={{ fontSize: "0.85rem", opacity: 0.5 }}>Figma links may take a moment to initialize...</span>
+                  </div>
                 </div>
               )}
 
@@ -404,10 +408,10 @@ export default function WorkSection() {
                   width: "100%", 
                   height: "100%", 
                   border: "none",
-                  opacity: iframeLoading ? 0 : 1,
-                  transition: "opacity 0.3s ease"
+                  background: "white" // Figma usually has a white/gray background, this confirms the iframe is active
                 }}
-                allow="fullscreen; clipboard-read; clipboard-write"
+                allow="fullscreen; clipboard-read; clipboard-write; payment"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation"
                 allowFullScreen
               />
             </motion.div>
