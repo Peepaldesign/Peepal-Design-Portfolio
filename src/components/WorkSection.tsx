@@ -10,6 +10,7 @@ export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [iframeLoading, setIframeLoading] = useState(true);
 
   // Dynamically extract categories from project data
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
@@ -307,19 +308,21 @@ export default function WorkSection() {
             position: "fixed", 
             top: 0, 
             left: 0, 
-            width: "100vw", 
-            height: "100vh", 
-            zIndex: 2000,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "2rem"
+            width: "100%", 
+            height: "100%", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            zIndex: 1000 
           }}>
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setActiveUrl(null)}
+              onClick={() => {
+                setActiveUrl(null);
+                setIframeLoading(true);
+              }}
               style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.95)", backdropFilter: "blur(10px)" }}
             />
             
@@ -331,36 +334,80 @@ export default function WorkSection() {
                 position: "relative", 
                 width: "95vw", 
                 height: "90vh", 
-                background: "black", 
-                borderRadius: "24px", 
+                background: "#1e1e1e", 
+                borderRadius: "24px",
                 overflow: "hidden",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)"
+                zIndex: 1001,
+                display: "flex",
+                flexDirection: "column"
               }}
             >
               <button 
-                onClick={() => setActiveUrl(null)}
-                style={{ 
-                  position: "absolute", 
-                  top: "1.5rem", 
-                  left: "1.5rem", 
-                  zIndex: 10,
-                  background: "white",
-                  border: "none",
-                  borderRadius: "50%",
+                onClick={() => {
+                  setActiveUrl(null);
+                  setIframeLoading(true);
+                }}
+                style={{
+                  position: "absolute",
+                  top: "1.5rem",
+                  right: "1.5rem",
                   width: "40px",
                   height: "40px",
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.1)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "white",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  zIndex: 1002
                 }}
               >
                 <X size={24} />
               </button>
               
+              {iframeLoading && (
+                <div style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "#1e1e1e",
+                  gap: "1rem",
+                  color: "white"
+                }}>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      border: "3px solid rgba(255,255,255,0.1)",
+                      borderTopColor: "white",
+                      borderRadius: "50%"
+                    }}
+                  />
+                  <span style={{ fontSize: "0.9rem", opacity: 0.7 }}>Loading Prototype...</span>
+                </div>
+              )}
+
               <iframe 
                 src={activeUrl}
-                style={{ width: "100%", height: "100%", border: "none" }}
+                onLoad={() => setIframeLoading(false)}
+                style={{ 
+                  width: "100%", 
+                  height: "100%", 
+                  border: "none",
+                  opacity: iframeLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease"
+                }}
+                allow="fullscreen; clipboard-read; clipboard-write"
                 allowFullScreen
               />
             </motion.div>
