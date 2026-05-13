@@ -8,6 +8,7 @@ export interface Project {
   tags: string[];
   prototypeUrl?: string;
   caseStudyUrl?: string;
+  longDescription?: string;
 }
 
 export const projects: Project[] = [
@@ -20,7 +21,8 @@ export const projects: Project[] = [
     size: "large",
     tags: ["EV App", "Mobile UX", "IoT"],
     prototypeUrl: "https://embed.figma.com/proto/XVVvhX8ahqBksg7Ffhy2D7/03_7%22-Touch?node-id=193-2242&viewport=5356%2C2401%2C0.46&scaling=contain&content-scaling=fixed&starting-point-node-id=84%3A6905&page-id=84%3A5718&embed-host=share",
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=859-14&p=f&viewport=512%2C2728%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=859%3A14&page-id=859%3A2&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=859-14&p=f&viewport=512%2C2728%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=859%3A14&page-id=859%3A2&embed-host=share",
+    longDescription: "Bajaj Chetak Ev Scooter TFT 7\" Touch Display - Full Prototype. Flows for interactions with handlebar buttons are included. Individual flows to Notifications, Navigation, Menu etc. are also present."
   },
   {
     id: "2",
@@ -62,7 +64,8 @@ export const projects: Project[] = [
     category: "Industrial & Agri-Tech",
     size: "small",
     tags: ["Agri-Tech", "IoT Data", "POC"],
-    prototypeUrl: "https://embed.figma.com/proto/Vr2wQGD6AT3JDjfx2l3ATq/01_Arable-POC-v1?node-id=107-1133&p=f&viewport=761%2C-635%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=107%3A1133&page-id=35%3A4&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/Vr2wQGD6AT3JDjfx2l3ATq/01_Arable-POC-v1?node-id=107-1133&p=f&viewport=761%2C-635%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=107%3A1133&page-id=35%3A4&embed-host=share",
+    longDescription: "Real-time access to in-field rainfall, crop water use, and irrigation data through a monitoring device connected to your mobile which allows farmers to irrigate based on the actual water need of the crop by making data actionable for irrigation decisions."
   },
   {
     id: "6",
@@ -73,7 +76,8 @@ export const projects: Project[] = [
     size: "small",
     tags: ["Hospitality", "Enterprise SaaS", "B2B"],
     prototypeUrl: "https://embed.figma.com/proto/0madtudLOJvYCwpY5wuA2J/11_MI-Blogs-studio-v1.0?node-id=2208-14341&viewport=165%2C-5262%2C0.15&scaling=contain&content-scaling=fixed&starting-point-node-id=2208%3A14341&page-id=2208%3A6565&embed-host=share",
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-2874&p=f&viewport=699%2C876%2C0.05&scaling=scale-down&content-scaling=fixed&page-id=816%3A2699&starting-point-node-id=816%3A2874&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=816-2874&p=f&viewport=699%2C876%2C0.05&scaling=scale-down&content-scaling=fixed&page-id=816%3A2699&starting-point-node-id=816%3A2874&embed-host=share",
+    longDescription: "Creating new blog posts and monitoring their performance through a detailed SEO dashboard. The interface allows for tracking an average SEO score across the entire library while providing quick navigation to fix \"Poor\" posts or optimize \"Average\" ones. Below these metrics, the blog post table can be filtered by status—such as Published, Scheduled, Draft, or Archive—and offers functionality to search, filter by category, and edit specific entries. Each row displays individual blog post data including the publication date, assigned category, and a visual SEO score gauge, alongside tools to manage comments and modify content."
   },
   {
     id: "7",
@@ -83,7 +87,8 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Fintech", "Retail POS", "Smart Display"],
-    prototypeUrl: "https://embed.figma.com/proto/MZDTpQB2cMfeqPvyTI5V5X/EIL2_04_TPV-PPDS-Dev-Delivery_Ext?node-id=3819-23020&viewport=644%2C1370%2C0.18&scaling=contain&content-scaling=fixed&starting-point-node-id=3819%3A23020&page-id=3252%3A7577&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/MZDTpQB2cMfeqPvyTI5V5X/EIL2_04_TPV-PPDS-Dev-Delivery_Ext?node-id=3819-23020&viewport=644%2C1370%2C0.18&scaling=contain&content-scaling=fixed&starting-point-node-id=3819%3A23020&page-id=3252%3A7577&embed-host=share",
+    longDescription: "Content layer of the interactive whiteboard that allows teachers to bring in and work with multimedia and structured resources during a lesson. It enables adding images, videos, audio, documents, shapes, and other assets onto the board, which can then be moved, scaled, layered, and annotated in real time. Integrated with recents and the file manager for quick access, Elements supports both tap-toplace and drag-and-drop interactions, helping teachers seamlessly combine prepared materials with live teaching, while ensuring clarity, flexibility, and speed on a large touch display."
   },
   {
     id: "8",
@@ -114,7 +119,8 @@ export const projects: Project[] = [
     category: "Industrial & Agri-Tech",
     size: "small",
     tags: ["Industrial HMI", "Heavy Equip", "Safety UX"],
-    prototypeUrl: "https://embed.figma.com/proto/zAsnKDA7b1OhAHZSCnpWrt/P21_Bobcat-Excavators?node-id=2768-9312&p=f&scaling=contain&content-scaling=fixed&page-id=2768%3A9311&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/zAsnKDA7b1OhAHZSCnpWrt/P21_Bobcat-Excavators?node-id=2768-9312&p=f&scaling=contain&content-scaling=fixed&page-id=2768%3A9311&embed-host=share",
+    longDescription: "Designing a tiered display system for automotive interfaces, for Better (5”), and Best (8”) variants, each offering progressively enhanced functionality and user experience. The goal was to create high-fidelity concepts that maintain a consistent design language, workflow, and brand identity across all tiers, while clearly differentiating each level through increased sophistication and capability. Special emphasis was placed on the premium 8” display, delivering refined visuals, enhanced graphics, and superior interaction quality. The designs incorporated both Light and Dark modes, adhered to layout and spacing guidelines, and prioritized key gauges to ensure clarity, usability, and a cohesive “family of products” experience."
   },
   {
     id: "11",
@@ -124,7 +130,8 @@ export const projects: Project[] = [
     category: "EdTech",
     size: "small",
     tags: ["EdTech", "LMS", "Adaptive Learning"],
-    prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share",
+    longDescription: "Login sub-flow for the app. Instant access to personalized learning paths, real-time performance analytics, and comprehensive study materials through a unified digital platform synced to your mobile which allows students to master concepts based on their individual pace by making data-driven insights actionable for academic success."
   },
   {
     id: "12",
@@ -135,7 +142,8 @@ export const projects: Project[] = [
     size: "small",
     tags: ["Mobile UX", "Automotive", "Connected Tech"],
     prototypeUrl: "https://embed.figma.com/proto/pZGF0oe0S8CTM3aT9n3kjq/01_Bajaj-Connect?node-id=1417-34810&viewport=2130%2C5610%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=1417%3A37201&page-id=1%3A6&embed-host=share",
-    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=988-2889&p=f&viewport=272%2C859%2C0.03&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=988%3A2889&page-id=868%3A2&embed-host=share"
+    caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=988-2889&p=f&viewport=272%2C859%2C0.03&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=988%3A2889&page-id=868%3A2&embed-host=share",
+    longDescription: "Dark Mode Prototype - This app was designed as a comprehensive aftersales companion for Bajaj customers, enhancing their ownership experience beyond the purchase. It centralizes essential functions like vehicle management, navigation, trip tracking, service scheduling, reminders, and Bluetooth connectivity, allowing users to seamlessly interact with their vehicle and stay informed. By bringing together utility features and real-time insights in a structured, easy-to-access interface, the app aims to improve convenience, engagement, and long-term customer satisfaction throughout the vehicle lifecycle."
   },
   {
     id: "13",
@@ -145,7 +153,8 @@ export const projects: Project[] = [
     category: "Enterprise & Fintech",
     size: "small",
     tags: ["Fintech", "Risk Management", "Dashboard"],
-    prototypeUrl: "https://embed.figma.com/proto/COkQHDwxbtpe5ngu591eEc/02_MP-Risk_Cycle-1?node-id=5004-7247&viewport=1265%2C-1827%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=5004%3A7247&page-id=5004%3A4560&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/COkQHDwxbtpe5ngu591eEc/02_MP-Risk_Cycle-1?node-id=5004-7247&viewport=1265%2C-1827%2C0.11&scaling=contain&content-scaling=fixed&starting-point-node-id=5004%3A7247&page-id=5004%3A4560&embed-host=share",
+    longDescription: "A risk assessment and management tool for pregnant patients and includes automated calculation of pregnancy risk and probability of adverse outcomes by drawing upon patient records from secondary and primary care."
   },
   {
     id: "14",
@@ -155,7 +164,8 @@ export const projects: Project[] = [
     category: "Healthcare",
     size: "small",
     tags: ["Social Impact", "Healthcare", "Mobile UI"],
-    prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share"
+    prototypeUrl: "https://embed.figma.com/proto/CzwYibJOko8HZT0bVwsYoX/02_ARMMAN-Prototype?node-id=510-929&viewport=-6320%2C1704%2C0.23&scaling=contain&content-scaling=fixed&starting-point-node-id=510%3A929&page-id=442%3A10228&embed-host=share",
+    longDescription: "Dual-purpose mobile application designed for healthcare practitioners in Telangana—including ANMs, Medical Officers, and gynecologists—to improve the management of high-risk pregnancies within India’s three-tier public health system. It combines a learning platform (with videos, simulations, and training modules) and a decision-support tool that enables real-time access to patient data, standardized protocols, and guided workflows for identifying, testing, treating, transferring, and following up on high-risk cases. The app aims to enhance early detection, ensure continuity of care across facilities, and ultimately improve maternal and infant health outcomes."
   },
   {
     id: "tp-vision",
@@ -296,5 +306,15 @@ export const projects: Project[] = [
     size: "small",
     tags: ["Investment", "Portfolio Management"],
     caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-4894&p=f&viewport=721%2C669%2C0.06&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A4894&page-id=989%3A4893&embed-host=share"
+  },
+  {
+    id: "pockit",
+    title: "PockIT",
+    description: "End-to-end service ecosystem for device repairs.",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["Service Design", "Mobile App", "Logistics"],
+    longDescription: "Designing a seamless, end-to-end service ecosystem for PockIT, covering both the customer experience and the technician-side app. It streamlined the repair journey—from booking and on-site inspection to verified quotes, spare part approval, repair execution, and payment—while ensuring data safety and clear communication. The technician app enabled efficient diagnostics, adherence to standardized rate cards, and structured workflows for service delivery. The solution emphasized trust through expert-validated pricing and a robust warranty system with hassle-free claims, aiming to deliver a reliable, transparent, and user-centric repair experience."
   }
 ];
