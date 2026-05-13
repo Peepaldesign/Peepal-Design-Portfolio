@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description: "Modernizing SAP Integration Suite from legacy frameworks to a streamlined SaaS experience.",
     image: "/projects/sap_integration.png",
     category: "Enterprise & Fintech",
-    size: "large",
+    size: "small",
     tags: ["SaaS", "Cloud Native", "SAP", "B2B"],
     longDescription: "This project focuses on modernizing the SAP Integration Suite by transitioning it from legacy frameworks into a streamlined, intuitive SaaS experience. By prioritizing user-centric design and cloud-native functionality, we are simplifying complex integration workflows and enhancing overall platform agility.",
     customButtons: [
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     description: "Reimagining the legendary Chetak as a premium electric vehicle, focusing on a connected mobile ecosystem and intuitive riding controls.",
     image: "/projects/chetak_hero.png",
     category: "Automotive",
-    size: "large",
+    size: "small",
     tags: ["EV App", "Mobile UX", "IoT"],
     prototypeUrl: "https://embed.figma.com/proto/XVVvhX8ahqBksg7Ffhy2D7/03_7%22-Touch?node-id=193-2242&viewport=5356%2C2401%2C0.46&scaling=contain&content-scaling=fixed&starting-point-node-id=84%3A6905&page-id=84%3A5718&embed-host=share",
     caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=859-14&p=f&viewport=512%2C2728%2C0.14&scaling=scale-down&content-scaling=fixed&starting-point-node-id=859%3A14&page-id=859%3A2&embed-host=share",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     description: "Designing a high-precision diagnostic interface for laboratory workflows, built to minimize error and maximize throughput.",
     image: "/projects/quantino_hero.png",
     category: "Healthcare",
-    size: "large",
+    size: "small",
     tags: ["Lab Diagnostics", "Healthcare UX", "Workflow"],
     prototypeUrl: "https://embed.figma.com/proto/C1ccZy6vyOQl75mAszj8Z4/05_Quantino_Relook?node-id=1-23115&p=f&scaling=contain&content-scaling=fixed&page-id=1%3A22063&starting-point-node-id=1%3A23115&embed-host=share",
     caseStudyUrl: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_Compiled-Case-Studies?node-id=989-3578&p=f&viewport=715%2C4065%2C0.36&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=989%3A3578&page-id=989%3A3576&embed-host=share"
