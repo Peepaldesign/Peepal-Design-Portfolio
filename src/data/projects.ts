@@ -9,9 +9,24 @@ export interface Project {
   prototypeUrl?: string;
   caseStudyUrl?: string;
   longDescription?: string;
+  customButtons?: { label: string; url: string }[];
 }
 
 export const projects: Project[] = [
+  {
+    id: "sap-integration",
+    title: "SAP Integration Suite",
+    description: "Modernizing SAP Integration Suite from legacy frameworks to a streamlined SaaS experience.",
+    image: "/projects/sap_integration.png",
+    category: "Enterprise & Fintech",
+    size: "large",
+    tags: ["SaaS", "Cloud Native", "SAP", "B2B"],
+    longDescription: "This project focuses on modernizing the SAP Integration Suite by transitioning it from legacy frameworks into a streamlined, intuitive SaaS experience. By prioritizing user-centric design and cloud-native functionality, we are simplifying complex integration workflows and enhancing overall platform agility.",
+    customButtons: [
+      { label: "Use Case 01 - Content flow", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=430-535663&viewport=835%2C865%2C0.05&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=430%3A535663&page-id=430%3A505965&embed-host=share" },
+      { label: "Use Case 02 - Prototype", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=456-533578&viewport=3152%2C-914%2C0.17&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=456%3A533578&page-id=456%3A509282&embed-host=share" }
+    ]
+  },
   {
     id: "1",
     title: "Bajaj Chetak",

@@ -214,54 +214,84 @@ export default function WorkSection() {
                 gap: "1rem",
                 background: "#fafafa"
               }}>
-                {selectedProject.caseStudyUrl && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
-                    style={{
-                      flex: 1,
-                      padding: "1rem",
-                      borderRadius: "16px",
-                      background: "var(--foreground)",
-                      border: "none",
-                      color: "var(--background)",
-                      fontSize: "1rem",
-                      fontWeight: 700,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "0.75rem",
-                      cursor: "pointer"
-                    }}
-                  >
-                    View Case Study <ExternalLink size={18} />
-                  </motion.button>
-                )}
+                {selectedProject.customButtons ? (
+                  selectedProject.customButtons.map((btn, idx) => (
+                    <motion.button
+                      key={idx}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setActiveUrl(btn.url)}
+                      style={{
+                        flex: 1,
+                        padding: "1rem",
+                        borderRadius: "16px",
+                        background: idx === 0 ? "var(--foreground)" : "white",
+                        border: idx === 0 ? "none" : "2px solid #e5e7eb",
+                        color: idx === 0 ? "var(--background)" : "#111827",
+                        fontSize: "0.95rem",
+                        fontWeight: 700,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "0.75rem",
+                        cursor: "pointer"
+                      }}
+                    >
+                      {btn.label} <ExternalLink size={18} />
+                    </motion.button>
+                  ))
+                ) : (
+                  <>
+                    {selectedProject.caseStudyUrl && (
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
+                        style={{
+                          flex: 1,
+                          padding: "1rem",
+                          borderRadius: "16px",
+                          background: "var(--foreground)",
+                          border: "none",
+                          color: "var(--background)",
+                          fontSize: "1rem",
+                          fontWeight: 700,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "0.75rem",
+                          cursor: "pointer"
+                        }}
+                      >
+                        View Case Study <ExternalLink size={18} />
+                      </motion.button>
+                    )}
 
-                {selectedProject.prototypeUrl && (
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
-                    style={{
-                      flex: 1,
-                      padding: "1rem",
-                      borderRadius: "16px",
-                      background: "white",
-                      border: "2px solid #e5e7eb",
-                      color: "#111827",
-                      fontSize: "1rem",
-                      fontWeight: 700,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "0.75rem",
-                      cursor: "pointer"
-                    }}
-                  >
-                    Visit Prototype <ExternalLink size={18} />
-                  </motion.button>
+                    {selectedProject.prototypeUrl && (
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
+                        style={{
+                          flex: 1,
+                          padding: "1rem",
+                          borderRadius: "16px",
+                          background: "white",
+                          border: "2px solid #e5e7eb",
+                          color: "#111827",
+                          fontSize: "1rem",
+                          fontWeight: 700,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "0.75rem",
+                          cursor: "pointer"
+                        }}
+                      >
+                        Visit Prototype <ExternalLink size={18} />
+                      </motion.button>
+                    )}
+                  </>
                 )}
               </div>
             </motion.div>
