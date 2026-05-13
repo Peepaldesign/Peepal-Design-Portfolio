@@ -332,8 +332,11 @@ function ProjectCard({ project, isForcedSmall, onClick }: { project: Project, is
         position: "relative",
         borderRadius: "24px",
         overflow: "hidden",
+        cursor: "pointer",
+        background: "#f3f4f6"
+      }}
       onClick={onClick}
-      style={{
+    >
       <img 
         src={project.image} 
         alt={project.title} 
