@@ -28,7 +28,7 @@ export default function WorkSection() {
   );
 
   return (
-    <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
+    <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "4rem auto 0", padding: "0 2rem" }}>
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
