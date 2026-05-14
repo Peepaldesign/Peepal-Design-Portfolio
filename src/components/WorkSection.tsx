@@ -298,35 +298,12 @@ export default function WorkSection() {
                           </button>
                         ))}
                       </div>
-
-                      <button
-                        onClick={() => setActiveUrl(selectedProject.customButtons[customTabIndex].url)}
-                        style={{
-                          padding: "0.75rem 1.25rem",
-                          borderRadius: "12px",
-                          background: "#fff",
-                          border: "1.5px solid #e5e7eb",
-                          color: "#111",
-                          fontSize: "0.85rem",
-                          fontWeight: 700,
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.5rem",
-                          cursor: "pointer",
-                          transition: "all 0.2s ease"
-                        }}
-                        title="View Fullscreen"
-                      >
-                        <Maximize size={16} /> Fullscreen
-                      </button>
                     </div>
 
                     {/* Inline Embedded Iframe */}
                     <div style={{
                       width: "100%",
                       height: "75vh",
-                      borderRadius: "16px",
-                      overflow: "hidden",
                       border: "1px solid #e5e7eb",
                       background: "#f9fafb",
                       position: "relative"
