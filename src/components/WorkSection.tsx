@@ -146,60 +146,73 @@ export default function WorkSection() {
                 </button>
               </div>
 
-              {/* Hero image */}
-              <div style={{ width: "100%", maxWidth: "1100px", margin: "0 auto", padding: "2rem 2rem 0" }}>
+              {/* Sticky Hero Image */}
+              <div style={{
+                position: "sticky",
+                top: "52px",
+                zIndex: 1,
+                width: "100%",
+                height: "70vh",
+                overflow: "hidden"
+              }}>
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+                {/* Subtle dark overlay for readability */}
                 <div style={{
-                  width: "100%",
-                  aspectRatio: "16/9",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  background: "#f3f4f6"
-                }}>
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                  />
-                </div>
+                  position: "absolute",
+                  bottom: 0, left: 0, width: "100%", height: "40%",
+                  background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)"
+                }} />
               </div>
 
-              {/* Content */}
-              <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>
-                <h1 style={{
-                  fontSize: "2.75rem",
-                  fontWeight: 800,
-                  color: "#111",
-                  lineHeight: 1.15,
-                  marginBottom: "1.5rem"
-                }}>
-                  {selectedProject.title}
-                </h1>
+              {/* Content that overlaps and scrolls over the image */}
+              <div style={{
+                position: "relative",
+                zIndex: 5,
+                marginTop: "-21vh",
+                background: "#ffffff",
+                borderRadius: "28px 28px 0 0",
+                minHeight: "60vh"
+              }}>
+                <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>
+                  <h1 style={{
+                    fontSize: "2.75rem",
+                    fontWeight: 800,
+                    color: "#111",
+                    lineHeight: 1.15,
+                    marginBottom: "1.5rem"
+                  }}>
+                    {selectedProject.title}
+                  </h1>
 
-                <div style={{ display: "flex", gap: "0.6rem", marginBottom: "2rem", flexWrap: "wrap" }}>
-                  {selectedProject.tags.map(tag => (
-                    <span key={tag} style={{
-                      fontSize: "0.8rem",
-                      background: "#f3f4f6",
-                      padding: "0.4rem 1rem",
-                      borderRadius: "100px",
-                      border: "1px solid #e5e7eb",
-                      color: "#6b7280",
-                      fontWeight: 600
-                    }}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                  <div style={{ display: "flex", gap: "0.6rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+                    {selectedProject.tags.map(tag => (
+                      <span key={tag} style={{
+                        fontSize: "0.8rem",
+                        background: "#f3f4f6",
+                        padding: "0.4rem 1rem",
+                        borderRadius: "100px",
+                        border: "1px solid #e5e7eb",
+                        color: "#6b7280",
+                        fontWeight: 600
+                      }}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-                <div style={{ color: "#4b5563", lineHeight: 1.9, fontSize: "1.1rem" }}>
-                  <h4 style={{ color: "#111", marginBottom: "0.75rem", fontWeight: 700, fontSize: "1.2rem" }}>Project Context</h4>
-                  {selectedProject.longDescription ? (
-                    <p>{selectedProject.longDescription}</p>
-                  ) : (
-                    <p>{selectedProject.description}</p>
-                  )}
+                  <div style={{ color: "#4b5563", lineHeight: 1.9, fontSize: "1.1rem" }}>
+                    <h4 style={{ color: "#111", marginBottom: "0.75rem", fontWeight: 700, fontSize: "1.2rem" }}>Project Context</h4>
+                    {selectedProject.longDescription ? (
+                      <p>{selectedProject.longDescription}</p>
+                    ) : (
+                      <p>{selectedProject.description}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
 
               {/* Action Buttons */}
               <div style={{
@@ -273,6 +286,7 @@ export default function WorkSection() {
                     )}
                   </>
                 )}
+              </div>
               </div>
             </motion.div>
           </>
