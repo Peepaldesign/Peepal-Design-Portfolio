@@ -28,7 +28,7 @@ export default function WorkSection() {
   );
 
   return (
-    <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "4rem auto 0", padding: "0 2rem" }}>
+    <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -156,35 +156,28 @@ export default function WorkSection() {
                 </button>
               </div>
 
-              {/* Sticky Hero Image */}
-              <div style={{
-                position: "sticky",
-                top: "52px",
-                zIndex: 1,
-                width: "100%",
-                height: "70vh",
-                overflow: "hidden"
-              }}>
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                />
-                {/* Subtle dark overlay for readability */}
+              {/* Hero Image */}
+              <div style={{ width: "100%", maxWidth: "1100px", margin: "0 auto", padding: "2rem 2rem 0" }}>
                 <div style={{
-                  position: "absolute",
-                  bottom: 0, left: 0, width: "100%", height: "60%",
-                  background: "linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 40%, transparent)"
-                }} />
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  maxHeight: "60vh",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  background: "#111"
+                }}>
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                </div>
               </div>
 
-              {/* Content that overlaps and scrolls over the image */}
+              {/* Content section */}
               <div style={{
                 position: "relative",
-                zIndex: 5,
-                marginTop: "-35vh",
                 background: "#ffffff",
-                borderRadius: "28px 28px 0 0",
                 minHeight: "60vh"
               }}>
                 <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>

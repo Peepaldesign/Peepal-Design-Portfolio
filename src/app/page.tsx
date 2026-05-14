@@ -18,9 +18,7 @@ export default function Home() {
         display: "flex", 
         flexDirection: "column", 
         justifyContent: "center", 
-        position: "sticky",
-        top: 0,
-        zIndex: 0,
+        position: "relative",
         overflow: "hidden",
         background: "white"
       }}>
@@ -104,19 +102,8 @@ export default function Home() {
       </section>
 
       {/* Main Content */}
-      <div style={{ 
-        position: "relative", 
-        zIndex: 10, 
-        background: "white",
-        borderTopLeftRadius: "40px",
-        borderTopRightRadius: "40px",
-        boxShadow: "0 -20px 40px rgba(0,0,0,0.08)",
-        marginTop: "-40px", // Slight negative margin to pull it up if needed, or just let it sit
-        paddingBottom: "2rem"
-      }}>
-        <div style={{ paddingTop: "2rem" }}>
-          <WorkSection />
-        </div>
+      <div>
+        <WorkSection />
         <Footer />
       </div>
     </main>
