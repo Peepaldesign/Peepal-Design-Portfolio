@@ -1,9 +1,8 @@
 "use client";
-// Force redeploy - v2
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink, ArrowLeft } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
 export default function WorkSection() {
@@ -12,16 +11,11 @@ export default function WorkSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [iframeLoading, setIframeLoading] = useState(true);
 
-  // Dynamically extract categories from project data
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
   const filteredProjects = projects.filter(p => 
     filter === 'All' ? true : p.category === filter
   );
-
-  // We keep the Bento layout only for the "All" tab. 
-  // For specific industry tabs, we use a uniform small-card grid.
-  const isForcedSmall = filter !== 'All';
 
   return (
     <section id="work" style={{ width: "100%", maxWidth: "1200px", margin: "10rem auto 0", padding: "0 2rem" }}>
@@ -34,13 +28,7 @@ export default function WorkSection() {
       >
         <h2 style={{ fontSize: "3rem", fontWeight: 700, marginBottom: "1.5rem" }}>Our Work</h2>
         
-        {/* Dynamic Industry Tabs */}
-        <div style={{ 
-          display: "flex", 
-          flexWrap: "wrap",
-          gap: "0.75rem",
-          marginBottom: "3rem"
-        }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
           {categories.map((tab) => (
             <button
               key={tab}
@@ -63,7 +51,6 @@ export default function WorkSection() {
         </div>
       </motion.div>
 
-      {/* Project Grid with Fade Animation */}
       <AnimatePresence mode="wait">
         <motion.div 
           key={filter}
@@ -88,130 +75,140 @@ export default function WorkSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Details Dialog Modal */}
+      {/* Dribbble-style Full-Screen Slide-Up Detail */}
       <AnimatePresence>
         {selectedProject && (
-          <div style={{ 
-            position: "fixed", 
-            top: 0, 
-            left: 0, 
-            width: "100vw", 
-            height: "100vh", 
-            zIndex: 1100,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "2rem"
-          }}>
-            <motion.div 
+          <>
+            {/* Backdrop */}
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               onClick={() => setSelectedProject(null)}
-              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.8)", backdropFilter: "blur(12px)" }}
+              style={{
+                position: "fixed",
+                top: 0, left: 0, width: "100vw", height: "100vh",
+                background: "rgba(0,0,0,0.6)",
+                backdropFilter: "blur(8px)",
+                zIndex: 1100
+              }}
             />
-            
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              style={{ 
-                position: "relative", 
-                width: "100%",
-                maxWidth: "800px",
-                maxHeight: "85vh",
-                background: "white", 
-                borderRadius: "32px", 
-                overflow: "hidden",
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.5)"
+
+            {/* Full-screen panel */}
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              style={{
+                position: "fixed",
+                top: "40px",
+                left: 0,
+                width: "100vw",
+                height: "calc(100vh - 40px)",
+                background: "#ffffff",
+                borderRadius: "24px 24px 0 0",
+                zIndex: 1200,
+                overflowY: "auto",
+                overflowX: "hidden"
               }}
             >
-              <button 
-                onClick={() => setSelectedProject(null)}
-                style={{ 
-                  position: "absolute", 
-                  top: "1.5rem", 
-                  right: "1.5rem", 
-                  zIndex: 10,
-                  background: "#f3f4f6",
-                  border: "none",
-                  borderRadius: "50%",
-                  width: "40px",
-                  height: "40px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  color: "black"
-                }}
-              >
-                <X size={20} />
-              </button>
+              {/* Sticky top bar */}
+              <div style={{
+                position: "sticky",
+                top: 0,
+                zIndex: 20,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "1rem 2rem",
+                background: "rgba(255,255,255,0.9)",
+                backdropFilter: "blur(16px)",
+                borderBottom: "1px solid #f0f0f0",
+                borderRadius: "24px 24px 0 0"
+              }}>
+                <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111" }}>
+                  {selectedProject.title}
+                </h3>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  style={{
+                    width: "36px", height: "36px",
+                    borderRadius: "50%",
+                    background: "#f3f4f6",
+                    border: "none",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    cursor: "pointer", color: "#111"
+                  }}
+                >
+                  <X size={18} />
+                </button>
+              </div>
 
-              <div style={{ flex: 1, overflowY: "auto" }}>
-                {/* Hero Image in Modal */}
-                <div style={{ width: "100%", height: "300px", position: "relative" }}>
-                  <img 
-                    src={selectedProject.image} 
-                    alt={selectedProject.title} 
+              {/* Hero image */}
+              <div style={{ width: "100%", maxWidth: "1100px", margin: "0 auto", padding: "2rem 2rem 0" }}>
+                <div style={{
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                  background: "#f3f4f6"
+                }}>
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
-                  <div style={{ 
-                    position: "absolute", 
-                    bottom: 0, 
-                    left: 0, 
-                    width: "100%", 
-                    height: "50%", 
-                    background: "linear-gradient(to top, white, transparent)" 
-                  }} />
-                </div>
-
-                <div style={{ padding: "0 3rem 3rem" }}>
-                  <h2 style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: "1.5rem", color: "#111827", marginTop: "-2rem", position: "relative" }}>{selectedProject.title}</h2>
-                  
-                  <div style={{ display: "flex", gap: "0.75rem", marginBottom: "2rem", flexWrap: "wrap" }}>
-                    {selectedProject.tags.map(tag => (
-                      <span key={tag} style={{ 
-                        fontSize: "0.75rem", 
-                        background: "#f3f4f6", 
-                        padding: "0.4rem 1rem", 
-                        borderRadius: "100px",
-                        border: "1px solid #e5e7eb",
-                        color: "#4b5563",
-                        fontWeight: 600
-                      }}>
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div style={{ color: "#4b5563", lineHeight: 1.8, fontSize: "1.1rem" }}>
-                    <h4 style={{ color: "#111827", marginBottom: "0.75rem", fontWeight: 700 }}>Project Context</h4>
-                    {selectedProject.longDescription ? (
-                      <p>{selectedProject.longDescription}</p>
-                    ) : (
-                      <>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                        </p>
-                        <p style={{ marginTop: "1rem" }}>
-                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                        </p>
-                      </>
-                    )}
-                  </div>
                 </div>
               </div>
 
-              <div style={{ 
-                padding: "2rem 3rem", 
-                borderTop: "1px solid #f3f4f6",
+              {/* Content */}
+              <div style={{ maxWidth: "800px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>
+                <h1 style={{
+                  fontSize: "2.75rem",
+                  fontWeight: 800,
+                  color: "#111",
+                  lineHeight: 1.15,
+                  marginBottom: "1.5rem"
+                }}>
+                  {selectedProject.title}
+                </h1>
+
+                <div style={{ display: "flex", gap: "0.6rem", marginBottom: "2rem", flexWrap: "wrap" }}>
+                  {selectedProject.tags.map(tag => (
+                    <span key={tag} style={{
+                      fontSize: "0.8rem",
+                      background: "#f3f4f6",
+                      padding: "0.4rem 1rem",
+                      borderRadius: "100px",
+                      border: "1px solid #e5e7eb",
+                      color: "#6b7280",
+                      fontWeight: 600
+                    }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div style={{ color: "#4b5563", lineHeight: 1.9, fontSize: "1.1rem" }}>
+                  <h4 style={{ color: "#111", marginBottom: "0.75rem", fontWeight: 700, fontSize: "1.2rem" }}>Project Context</h4>
+                  {selectedProject.longDescription ? (
+                    <p>{selectedProject.longDescription}</p>
+                  ) : (
+                    <p>{selectedProject.description}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div style={{
+                maxWidth: "800px",
+                margin: "0 auto",
+                padding: "0 2rem 4rem",
                 display: "flex",
                 flexWrap: "wrap",
-                gap: "1rem",
-                background: "#fafafa"
+                gap: "0.75rem"
               }}>
                 {selectedProject.customButtons ? (
                   selectedProject.customButtons.map((btn, idx) => (
@@ -221,23 +218,21 @@ export default function WorkSection() {
                       whileTap={{ scale: 0.98 }}
                       onClick={() => setActiveUrl(btn.url)}
                       style={{
-                        flex: "1 1 calc(33.33% - 1rem)",
+                        flex: "1 1 calc(33.33% - 0.75rem)",
                         minWidth: "200px",
-                        padding: "1rem",
-                        borderRadius: "16px",
-                        background: idx === 0 ? "var(--foreground)" : "white",
+                        padding: "1rem 1.25rem",
+                        borderRadius: "14px",
+                        background: idx === 0 ? "#111" : "#fff",
                         border: idx === 0 ? "none" : "2px solid #e5e7eb",
-                        color: idx === 0 ? "var(--background)" : "#111827",
-                        fontSize: "0.95rem",
+                        color: idx === 0 ? "#fff" : "#111",
+                        fontSize: "0.9rem",
                         fontWeight: 700,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "0.75rem",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        gap: "0.6rem",
                         cursor: "pointer"
                       }}
                     >
-                      {btn.label} <ExternalLink size={18} />
+                      {btn.label} <ExternalLink size={16} />
                     </motion.button>
                   ))
                 ) : (
@@ -248,170 +243,120 @@ export default function WorkSection() {
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
                         style={{
-                          flex: "1 1 200px",
-                          minWidth: "150px",
-                          padding: "1rem",
-                          borderRadius: "16px",
-                          background: "var(--foreground)",
-                          border: "none",
-                          color: "var(--background)",
-                          fontSize: "1rem",
-                          fontWeight: 700,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: "0.75rem",
-                          cursor: "pointer"
+                          flex: "1 1 200px", minWidth: "150px",
+                          padding: "1rem 1.25rem", borderRadius: "14px",
+                          background: "#111", border: "none", color: "#fff",
+                          fontSize: "1rem", fontWeight: 700,
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          gap: "0.6rem", cursor: "pointer"
                         }}
                       >
-                        View Case Study <ExternalLink size={18} />
+                        View Case Study <ExternalLink size={16} />
                       </motion.button>
                     )}
-
                     {selectedProject.prototypeUrl && (
                       <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
                         style={{
-                          flex: "1 1 200px",
-                          minWidth: "150px",
-                          padding: "1rem",
-                          borderRadius: "16px",
-                          background: "white",
-                          border: "2px solid #e5e7eb",
-                          color: "#111827",
-                          fontSize: "1rem",
-                          fontWeight: 700,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          gap: "0.75rem",
-                          cursor: "pointer"
+                          flex: "1 1 200px", minWidth: "150px",
+                          padding: "1rem 1.25rem", borderRadius: "14px",
+                          background: "#fff", border: "2px solid #e5e7eb", color: "#111",
+                          fontSize: "1rem", fontWeight: 700,
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          gap: "0.6rem", cursor: "pointer"
                         }}
                       >
-                        Visit Prototype <ExternalLink size={18} />
+                        Visit Prototype <ExternalLink size={16} />
                       </motion.button>
                     )}
                   </>
                 )}
               </div>
             </motion.div>
-          </div>
+          </>
         )}
       </AnimatePresence>
 
-      {/* Figma Prototype Modal */}
+      {/* Prototype Iframe - opens ON TOP of the detail panel */}
       <AnimatePresence>
         {activeUrl && (
-          <div style={{ 
-            position: "fixed", 
-            top: 0, 
-            left: 0, 
-            width: "100%", 
-            height: "100%", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center", 
-            zIndex: 1000 
-          }}>
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => {
-                setActiveUrl(null);
-                setIframeLoading(true);
-              }}
-              style={{ position: "absolute", width: "100%", height: "100%", background: "rgba(0,0,0,0.95)", backdropFilter: "blur(10px)" }}
-            />
-            
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              style={{ 
-                position: "relative", 
-                width: "95vw", 
-                height: "90vh", 
-                background: "#1e1e1e", 
-                borderRadius: "24px",
-                overflow: "hidden",
-                zIndex: 1001,
-                display: "flex",
-                flexDirection: "column"
-              }}
-            >
-              <button 
-                onClick={() => {
-                  setActiveUrl(null);
-                  setIframeLoading(true);
-                }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: "fixed",
+              top: 0, left: 0, width: "100vw", height: "100vh",
+              zIndex: 2000,
+              background: "rgba(0,0,0,0.9)",
+              backdropFilter: "blur(12px)",
+              display: "flex", flexDirection: "column"
+            }}
+          >
+            {/* Iframe top bar */}
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "0.75rem 1.5rem",
+              background: "#111",
+              borderBottom: "1px solid rgba(255,255,255,0.08)"
+            }}>
+              <button
+                onClick={() => { setActiveUrl(null); setIframeLoading(true); }}
                 style={{
-                  position: "absolute",
-                  top: "1.5rem",
-                  right: "1.5rem",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "rgba(255,255,255,0.1)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "white",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  cursor: "pointer",
-                  zIndex: 1002
+                  display: "flex", alignItems: "center", gap: "0.5rem",
+                  background: "none", border: "none", color: "rgba(255,255,255,0.7)",
+                  cursor: "pointer", fontSize: "0.9rem", fontWeight: 600
                 }}
               >
-                <X size={24} />
+                <ArrowLeft size={18} /> Back to Project
               </button>
-              
+              <button
+                onClick={() => { setActiveUrl(null); setIframeLoading(true); }}
+                style={{
+                  width: "34px", height: "34px", borderRadius: "50%",
+                  background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)",
+                  color: "white", display: "flex", alignItems: "center", justifyContent: "center",
+                  cursor: "pointer"
+                }}
+              >
+                <X size={16} />
+              </button>
+            </div>
+
+            {/* Iframe body */}
+            <div style={{ flex: 1, position: "relative" }}>
               {iframeLoading && (
                 <div style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "#1e1e1e",
-                  gap: "1rem",
-                  color: "white"
+                  position: "absolute", top: 0, left: 0, width: "100%", height: "100%",
+                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                  background: "#1a1a1a", gap: "1rem", color: "white", zIndex: 5
                 }}>
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     style={{
-                      width: "40px",
-                      height: "40px",
+                      width: "40px", height: "40px",
                       border: "3px solid rgba(255,255,255,0.1)",
-                      borderTopColor: "white",
-                      borderRadius: "50%"
+                      borderTopColor: "white", borderRadius: "50%"
                     }}
                   />
-                  <span style={{ fontSize: "0.9rem", opacity: 0.7 }}>Loading Prototype...</span>
+                  <span style={{ fontSize: "0.9rem", opacity: 0.6 }}>Loading Prototype...</span>
                 </div>
               )}
-
-              <iframe 
+              <iframe
                 src={activeUrl}
                 onLoad={() => setIframeLoading(false)}
-                style={{ 
-                  width: "100%", 
-                  height: "100%", 
-                  border: "none",
-                  opacity: iframeLoading ? 0 : 1,
-                  transition: "opacity 0.3s ease"
+                style={{
+                  width: "100%", height: "100%", border: "none",
+                  opacity: iframeLoading ? 0 : 1, transition: "opacity 0.3s ease"
                 }}
                 allow="fullscreen; clipboard-read; clipboard-write"
                 allowFullScreen
               />
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </section>
@@ -442,18 +387,12 @@ function ProjectCard({ project, onClick }: { project: Project, onClick: () => vo
         className="card-image"
       />
       
-      {/* Overlay */}
       <div style={{
         position: "absolute",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
+        bottom: 0, left: 0, width: "100%", height: "100%",
         background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, transparent 100%)",
         padding: "2rem",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
+        display: "flex", flexDirection: "column", justifyContent: "flex-end",
         transition: "opacity 0.3s ease"
       }}>
         <div style={{ display: "flex", gap: "0.5rem", marginBottom: "0.75rem", flexWrap: "wrap" }}>
