@@ -267,7 +267,7 @@ export default function WorkSection() {
                     {/* Inline Embedded Iframe */}
                     <div style={{
                       width: "100%",
-                      aspectRatio: "16/9",
+                      height: "75vh",
                       borderRadius: "16px",
                       overflow: "hidden",
                       border: "1px solid #e5e7eb",
