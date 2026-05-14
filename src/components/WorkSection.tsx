@@ -10,6 +10,7 @@ export default function WorkSection() {
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [iframeLoading, setIframeLoading] = useState(true);
+  const [customTabIndex, setCustomTabIndex] = useState(0);
 
   // Lock body scroll when panel is open
   useEffect(() => {
@@ -234,30 +235,54 @@ export default function WorkSection() {
                 gap: "0.75rem"
               }}>
                 {selectedProject.customButtons ? (
-                  selectedProject.customButtons.map((btn, idx) => (
-                    <motion.button
-                      key={idx}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setActiveUrl(btn.url)}
-                      style={{
-                        flex: "1 1 calc(33.33% - 0.75rem)",
-                        minWidth: "200px",
-                        padding: "1rem 1.25rem",
-                        borderRadius: "14px",
-                        background: idx === 0 ? "#111" : "#fff",
-                        border: idx === 0 ? "none" : "2px solid #e5e7eb",
-                        color: idx === 0 ? "#fff" : "#111",
-                        fontSize: "0.9rem",
-                        fontWeight: 700,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        gap: "0.6rem",
-                        cursor: "pointer"
-                      }}
-                    >
-                      {btn.label} <ExternalLink size={16} />
-                    </motion.button>
-                  ))
+                  <div>
+                    {/* Tabs */}
+                    <div style={{
+                      display: "flex",
+                      flexWrap: "wrap",
+                      gap: "0.5rem",
+                      marginBottom: "1.5rem"
+                    }}>
+                      {selectedProject.customButtons.map((btn, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setCustomTabIndex(idx)}
+                          style={{
+                            padding: "0.75rem 1.25rem",
+                            borderRadius: "12px",
+                            border: customTabIndex === idx ? "none" : "1.5px solid #e5e7eb",
+                            background: customTabIndex === idx ? "#111" : "#fff",
+                            color: customTabIndex === idx ? "#fff" : "#555",
+                            fontSize: "0.85rem",
+                            fontWeight: 700,
+                            cursor: "pointer",
+                            transition: "all 0.2s ease"
+                          }}
+                        >
+                          {btn.label}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Inline Embedded Iframe */}
+                    <div style={{
+                      width: "100%",
+                      aspectRatio: "16/9",
+                      borderRadius: "16px",
+                      overflow: "hidden",
+                      border: "1px solid #e5e7eb",
+                      background: "#f9fafb",
+                      position: "relative"
+                    }}>
+                      <iframe
+                        key={customTabIndex}
+                        src={selectedProject.customButtons[customTabIndex].url}
+                        style={{ width: "100%", height: "100%", border: "none" }}
+                        allow="fullscreen; clipboard-read; clipboard-write"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
                 ) : (
                   <>
                     {selectedProject.caseStudyUrl && (
