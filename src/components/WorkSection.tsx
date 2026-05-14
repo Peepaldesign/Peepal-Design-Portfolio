@@ -163,8 +163,8 @@ export default function WorkSection() {
                 {/* Subtle dark overlay for readability */}
                 <div style={{
                   position: "absolute",
-                  bottom: 0, left: 0, width: "100%", height: "40%",
-                  background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)"
+                  bottom: 0, left: 0, width: "100%", height: "60%",
+                  background: "linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 40%, transparent)"
                 }} />
               </div>
 
@@ -172,7 +172,7 @@ export default function WorkSection() {
               <div style={{
                 position: "relative",
                 zIndex: 5,
-                marginTop: "-21vh",
+                marginTop: "-35vh",
                 background: "#ffffff",
                 borderRadius: "28px 28px 0 0",
                 minHeight: "60vh"
