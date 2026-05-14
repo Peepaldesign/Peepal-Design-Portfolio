@@ -264,52 +264,80 @@ export default function WorkSection() {
                       ))}
                     </div>
 
-                    {/* Inline Embedded Iframe */}
-                    <div style={{ position: "relative", width: "100%", height: "75vh" }}>
+                    {/* Tabs and Controls */}
+                    <div style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      marginBottom: "1.5rem",
+                      flexWrap: "wrap",
+                      gap: "1rem"
+                    }}>
                       <div style={{
-                        width: "100%",
-                        height: "100%",
-                        borderRadius: "16px",
-                        overflow: "hidden",
-                        border: "1px solid #e5e7eb",
-                        background: "#f9fafb",
-                        position: "absolute",
-                        top: 0,
-                        left: 0
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "0.5rem",
                       }}>
-                        <iframe
-                          key={customTabIndex}
-                          src={selectedProject.customButtons[customTabIndex].url}
-                          style={{ width: "100%", height: "100%", border: "none" }}
-                          allow="fullscreen; clipboard-read; clipboard-write"
-                          allowFullScreen
-                        />
+                        {selectedProject.customButtons.map((btn, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setCustomTabIndex(idx)}
+                            style={{
+                              padding: "0.75rem 1.25rem",
+                              borderRadius: "12px",
+                              border: customTabIndex === idx ? "none" : "1.5px solid #e5e7eb",
+                              background: customTabIndex === idx ? "#111" : "#fff",
+                              color: customTabIndex === idx ? "#fff" : "#555",
+                              fontSize: "0.85rem",
+                              fontWeight: 700,
+                              cursor: "pointer",
+                              transition: "all 0.2s ease"
+                            }}
+                          >
+                            {btn.label}
+                          </button>
+                        ))}
                       </div>
-                      
+
                       <button
                         onClick={() => setActiveUrl(selectedProject.customButtons[customTabIndex].url)}
                         style={{
-                          position: "absolute",
-                          top: "1.5rem",
-                          right: "1.5rem",
-                          width: "48px",
-                          height: "48px",
+                          padding: "0.75rem 1.25rem",
                           borderRadius: "12px",
-                          background: "#111",
-                          border: "2px solid rgba(255,255,255,0.2)",
-                          boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
-                          color: "white",
+                          background: "#fff",
+                          border: "1.5px solid #e5e7eb",
+                          color: "#111",
+                          fontSize: "0.85rem",
+                          fontWeight: 700,
                           display: "flex",
                           alignItems: "center",
-                          justifyContent: "center",
+                          gap: "0.5rem",
                           cursor: "pointer",
-                          zIndex: 50,
                           transition: "all 0.2s ease"
                         }}
                         title="View Fullscreen"
                       >
-                        <Maximize size={20} />
+                        <Maximize size={16} /> Fullscreen
                       </button>
+                    </div>
+
+                    {/* Inline Embedded Iframe */}
+                    <div style={{
+                      width: "100%",
+                      height: "75vh",
+                      borderRadius: "16px",
+                      overflow: "hidden",
+                      border: "1px solid #e5e7eb",
+                      background: "#f9fafb",
+                      position: "relative"
+                    }}>
+                      <iframe
+                        key={customTabIndex}
+                        src={selectedProject.customButtons[customTabIndex].url}
+                        style={{ width: "100%", height: "100%", border: "none" }}
+                        allow="fullscreen; clipboard-read; clipboard-write"
+                        allowFullScreen
+                      />
                     </div>
                   </div>
                 ) : (
