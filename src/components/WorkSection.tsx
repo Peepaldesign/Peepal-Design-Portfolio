@@ -378,26 +378,22 @@ export default function WorkSection() {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
-                  background: "#121212",
-                  gap: "1.5rem",
-                  color: "white",
-                  zIndex: 10
+                  background: "#1e1e1e",
+                  gap: "1rem",
+                  color: "white"
                 }}>
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     style={{
-                      width: "50px",
-                      height: "50px",
-                      border: "4px solid rgba(255,255,255,0.1)",
-                      borderTopColor: "#3b82f6",
+                      width: "40px",
+                      height: "40px",
+                      border: "3px solid rgba(255,255,255,0.1)",
+                      borderTopColor: "white",
                       borderRadius: "50%"
                     }}
                   />
-                  <div style={{ textAlign: "center" }}>
-                    <span style={{ fontSize: "1.1rem", fontWeight: 600, display: "block", marginBottom: "0.25rem" }}>Loading Prototype</span>
-                    <span style={{ fontSize: "0.85rem", opacity: 0.5 }}>Figma links may take a moment to initialize...</span>
-                  </div>
+                  <span style={{ fontSize: "0.9rem", opacity: 0.7 }}>Loading Prototype...</span>
                 </div>
               )}
 
@@ -408,10 +404,10 @@ export default function WorkSection() {
                   width: "100%", 
                   height: "100%", 
                   border: "none",
-                  background: "white" // Figma usually has a white/gray background, this confirms the iframe is active
+                  opacity: iframeLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease"
                 }}
-                allow="fullscreen; clipboard-read; clipboard-write; payment"
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation"
+                allow="fullscreen; clipboard-read; clipboard-write"
                 allowFullScreen
               />
             </motion.div>
