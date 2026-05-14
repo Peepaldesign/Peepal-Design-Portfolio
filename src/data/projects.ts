@@ -150,6 +150,12 @@ export const projects: Project[] = [
     size: "small",
     tags: ["EdTech", "LMS", "Adaptive Learning"],
     prototypeUrl: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share",
+    customButtons: [
+      { label: "Login Flow", url: "https://embed.figma.com/proto/viy3szH5s8w8cg0uF4SMdh/13_Login-Sign-Up?node-id=1637-69194&viewport=-1296%2C114%2C0.09&scaling=contain&content-scaling=fixed&starting-point-node-id=1637%3A68743&page-id=0%3A1&embed-host=share" },
+      { label: "Home IL Theme", url: "https://embed.figma.com/proto/sb8I4eGgrPvIIVDjbipNoo/15_Home?node-id=3022-16100&viewport=-1818%2C509%2C0.43&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=3022%3A16100&page-id=0%3A1&embed-host=share" },
+      { label: "Home Meta Theme", url: "https://embed.figma.com/proto/sb8I4eGgrPvIIVDjbipNoo/15_Home?node-id=3375-53536&viewport=1772%2C3372%2C0.24&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=3375%3A53536&page-id=1001%3A6&embed-host=share" },
+      { label: "Home SCA Theme", url: "https://embed.figma.com/proto/sb8I4eGgrPvIIVDjbipNoo/15_Home?node-id=3011-38194&viewport=2044%2C5710%2C0.4&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=3011%3A38194&show-proto-sidebar=1&page-id=1001%3A5&embed-host=share" }
+    ],
     longDescription: "Login sub-flow for the app. Instant access to personalized learning paths, real-time performance analytics, and comprehensive study materials through a unified digital platform synced to your mobile which allows students to master concepts based on their individual pace by making data-driven insights actionable for academic success."
   },
   {
