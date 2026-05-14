@@ -15,8 +15,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "sap-integration",
-    title: "SAP Integration Suite",
-    description: "Modernizing SAP Integration Suite from legacy frameworks to a streamlined SaaS experience.",
+    title: "SAP Integration",
+    description: "Advanced platform for managing, monitoring, and connecting complex API systems.",
     image: "/projects/sap_integration.png",
     category: "Enterprise & Fintech",
     size: "small",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Bajaj Chetak",
-    description: "Reimagining the legendary Chetak as a premium electric vehicle, focusing on a connected mobile ecosystem and intuitive riding controls.",
+    description: "Designing intuitive touch and non-touch digital clusters for electric mobility.",
     image: "/projects/chetak_hero.png",
     category: "Automotive",
     size: "small",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "Bajaj Dominar",
-    description: "Designing a robust touring platform for the Dominar 400, empowering long-distance riders with community features and trip analytics.",
+    description: "High-performance TFT interface designed for touring safety and readability.",
     image: "/projects/dominar_hero.png",
     category: "Automotive",
     size: "small",
@@ -55,8 +55,8 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "Biorad Enli8",
-    description: "A specialized GUI for endoscopy video processing units, standardizing medical procedures and enhancing surgeon situational awareness.",
+    title: "Bio-Rad Enligh8",
+    description: "Medical-grade controller UI for precision endoscopy and surgical instruments.",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop",
     category: "Healthcare",
     size: "small",
@@ -66,8 +66,8 @@ export const projects: Project[] = [
   },
   {
     id: "4",
-    title: "Biorad Quantino",
-    description: "Designing a high-precision diagnostic interface for laboratory workflows, built to minimize error and maximize throughput.",
+    title: "Bio-Rad Quantino",
+    description: "Specialized interface for medical laser and stone fragmentation technology.",
     image: "/projects/quantino_hero.png",
     category: "Healthcare",
     size: "small",
@@ -77,8 +77,8 @@ export const projects: Project[] = [
   },
   {
     id: "5",
-    title: "Arable POC",
-    description: "Visualizing complex agri-tech data through an IoT dashboard, enabling farmers to make real-time decisions based on crop and climate health.",
+    title: "Arable IoT",
+    description: "Smart farming app connecting in-field devices with real-time data analytics.",
     image: "https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1974&auto=format&fit=crop",
     category: "Industrial & Agri-Tech",
     size: "small",
@@ -88,8 +88,8 @@ export const projects: Project[] = [
   },
   {
     id: "6",
-    title: "Milestone Internet",
-    description: "A comprehensive SaaS platform for hospitality digital marketing, optimizing hotel asset management and conversion tracking.",
+    title: "Blog Studio",
+    description: "A streamlined website management system focused on effortless content creation.",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
@@ -101,7 +101,7 @@ export const projects: Project[] = [
   {
     id: "7",
     title: "TPV Genius",
-    description: "Designing a high-traffic retail payment experience for smart displays, focusing on speed, security, and global accessibility.",
+    description: "Designing a seamless digital whiteboard experience for modern collaboration.",
     image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
@@ -111,8 +111,8 @@ export const projects: Project[] = [
   },
   {
     id: "8",
-    title: "Rem42",
-    description: "AI-powered sleep coaching ecosystem designed for elite athletes, translating biometric data into actionable recovery insights.",
+    title: "Zheal Sleep App",
+    description: "Enhancing rest through a performance app synced with wearable sleep trackers.",
     image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2120&auto=format&fit=crop",
     category: "Healthcare",
     size: "small",
@@ -122,8 +122,8 @@ export const projects: Project[] = [
   },
   {
     id: "9",
-    title: "AXS",
-    description: "Streamlining the digital ticketing journey for global venues, ensuring a friction-free experience from discovery to entry.",
+    title: "AXS Comparison",
+    description: "Research-backed automotive portal for superior car comparison experiences.",
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
@@ -132,8 +132,8 @@ export const projects: Project[] = [
   },
   {
     id: "10",
-    title: "Bobcat",
-    description: "Designing the Human-Machine Interface (HMI) for industrial heavy equipment, built for durability and mission-critical reliability.",
+    title: "Bobcat HMI",
+    description: "Rugged, non-touch digital instrument clusters for heavy-duty excavators.",
     image: "https://images.unsplash.com/photo-1533923156502-be31530547c4?q=80&w=1974&auto=format&fit=crop",
     category: "Industrial & Agri-Tech",
     size: "small",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
   {
     id: "11",
     title: "Infinity Learn",
-    description: "An adaptive learning platform that institutionalizes pedagogy through personalized assessment and learning paths for K-12.",
+    description: "A cohesive digital ecosystem revamping the UX for three learning platforms.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop",
     category: "EdTech",
     size: "small",
@@ -154,8 +154,8 @@ export const projects: Project[] = [
   },
   {
     id: "12",
-    title: "Mera Bajaj / Connect",
-    description: "A comprehensive mobile ecosystem for Bajaj owners, integrating vehicle health, service tracking, and connected riding features.",
+    title: "Mera Bajaj",
+    description: "All-in-one vehicle management app for tracking documents and bike health.",
     image: "/projects/mera_bajaj.png",
     category: "Automotive",
     size: "small",
@@ -166,8 +166,8 @@ export const projects: Project[] = [
   },
   {
     id: "13",
-    title: "MP Risk",
-    description: "Enterprise-grade risk management platform for financial institutions, featuring complex data visualization and predictive analytics.",
+    title: "MP Risk MVP",
+    description: "A specialized risk assessment portal for medical professionals in pregnancy.",
     image: "/projects/mp_risk.png",
     category: "Enterprise & Fintech",
     size: "small",
@@ -178,7 +178,7 @@ export const projects: Project[] = [
   {
     id: "14",
     title: "ARMMAN",
-    description: "Tech-driven healthcare intervention for maternal and child health, designed to empower rural communities with life-saving information.",
+    description: "Iterative on-field design to help health workers manage high-risk pregnancies.",
     image: "/projects/armman.png",
     category: "Healthcare",
     size: "small",
@@ -329,7 +329,7 @@ export const projects: Project[] = [
   {
     id: "pockit",
     title: "PockIT",
-    description: "End-to-end service ecosystem for device repairs.",
+    description: "Service marketplace connecting customers with technicians for home solutions.",
     image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop",
     category: "Enterprise & Fintech",
     size: "small",
