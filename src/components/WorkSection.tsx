@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X, ExternalLink, ArrowLeft } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
 export default function WorkSection() {
@@ -164,7 +164,7 @@ export default function WorkSection() {
               </div>
 
               {/* Content */}
-              <div style={{ maxWidth: "800px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>
+              <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "3rem 2rem 2rem" }}>
                 <h1 style={{
                   fontSize: "2.75rem",
                   fontWeight: 800,
@@ -203,7 +203,7 @@ export default function WorkSection() {
 
               {/* Action Buttons */}
               <div style={{
-                maxWidth: "800px",
+                maxWidth: "1100px",
                 margin: "0 auto",
                 padding: "0 2rem 4rem",
                 display: "flex",
@@ -297,21 +297,11 @@ export default function WorkSection() {
           >
             {/* Iframe top bar */}
             <div style={{
-              display: "flex", alignItems: "center", justifyContent: "space-between",
+              display: "flex", alignItems: "center", justifyContent: "flex-end",
               padding: "0.75rem 1.5rem",
               background: "#111",
               borderBottom: "1px solid rgba(255,255,255,0.08)"
             }}>
-              <button
-                onClick={() => { setActiveUrl(null); setIframeLoading(true); }}
-                style={{
-                  display: "flex", alignItems: "center", gap: "0.5rem",
-                  background: "none", border: "none", color: "rgba(255,255,255,0.7)",
-                  cursor: "pointer", fontSize: "0.9rem", fontWeight: 600
-                }}
-              >
-                <ArrowLeft size={18} /> Back to Project
-              </button>
               <button
                 onClick={() => { setActiveUrl(null); setIframeLoading(true); }}
                 style={{
