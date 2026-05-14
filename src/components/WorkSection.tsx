@@ -269,7 +269,7 @@ export default function WorkSection() {
                     {/* Inline Embedded Iframe */}
                     <div style={{
                       width: "100%",
-                      height: "75vh",
+                      height: "85vh",
                       border: "1px solid #e5e7eb",
                       background: "#f9fafb",
                       position: "relative"
