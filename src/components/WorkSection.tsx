@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { X, ExternalLink } from "lucide-react";
+import { X, ExternalLink, Maximize } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
 export default function WorkSection() {
@@ -281,6 +281,31 @@ export default function WorkSection() {
                         allow="fullscreen; clipboard-read; clipboard-write"
                         allowFullScreen
                       />
+                      
+                      <button
+                        onClick={() => setActiveUrl(selectedProject.customButtons[customTabIndex].url)}
+                        style={{
+                          position: "absolute",
+                          bottom: "1rem",
+                          right: "1rem",
+                          width: "40px",
+                          height: "40px",
+                          borderRadius: "10px",
+                          background: "rgba(0,0,0,0.7)",
+                          backdropFilter: "blur(4px)",
+                          border: "1px solid rgba(255,255,255,0.2)",
+                          color: "white",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                          zIndex: 10,
+                          transition: "all 0.2s ease"
+                        }}
+                        title="View Fullscreen"
+                      >
+                        <Maximize size={18} />
+                      </button>
                     </div>
                   </div>
                 ) : (
