@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, ExternalLink } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 
@@ -10,6 +10,16 @@ export default function WorkSection() {
   const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [iframeLoading, setIframeLoading] = useState(true);
+
+  // Lock body scroll when panel is open
+  useEffect(() => {
+    if (selectedProject || activeUrl) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedProject, activeUrl]);
 
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
