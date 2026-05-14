@@ -290,7 +290,7 @@ export default function WorkSection() {
                         onClick={() => setActiveUrl(selectedProject.customButtons[customTabIndex].url)}
                         style={{
                           position: "absolute",
-                          bottom: "1.5rem",
+                          top: "1.5rem",
                           right: "1.5rem",
                           width: "48px",
                           height: "48px",
