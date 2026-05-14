@@ -25,9 +25,7 @@ export const projects: Project[] = [
     customButtons: [
       { label: "Home", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=353-515450&viewport=1606%2C-7800%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=353%3A515450&page-id=214%3A37253&embed-host=share" },
       { label: "Monitor Integrations", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=421-512393&viewport=1606%2C-7800%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=421%3A512393&page-id=214%3A37253&embed-host=share" },
-      { label: "View Integrations", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=353-516265&viewport=1606%2C-7800%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=353%3A516265&page-id=214%3A37253&embed-host=share" },
       { label: "Edit Integrations", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=353-516963&viewport=1606%2C-7800%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=353%3A516963&page-id=214%3A37253&embed-host=share" },
-      { label: "Discover Integrations", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=353-515715&viewport=1606%2C-7800%2C0.11&scaling=scale-down&content-scaling=fixed&starting-point-node-id=353%3A515715&page-id=214%3A37253&embed-host=share" },
       { label: "Canvas", url: "https://embed.figma.com/proto/sWeCANLehAVLHorqFHUGqJ/11_High-Fidelity_iSuite?node-id=430-535663&viewport=835%2C865%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=430%3A535663&page-id=430%3A505965&embed-host=share" }
     ]
   },
