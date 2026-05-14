@@ -264,41 +264,7 @@ export default function WorkSection() {
                       ))}
                     </div>
 
-                    {/* Tabs and Controls */}
-                    <div style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      marginBottom: "1.5rem",
-                      flexWrap: "wrap",
-                      gap: "1rem"
-                    }}>
-                      <div style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        gap: "0.5rem",
-                      }}>
-                        {selectedProject.customButtons.map((btn, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => setCustomTabIndex(idx)}
-                            style={{
-                              padding: "0.75rem 1.25rem",
-                              borderRadius: "12px",
-                              border: customTabIndex === idx ? "none" : "1.5px solid #e5e7eb",
-                              background: customTabIndex === idx ? "#111" : "#fff",
-                              color: customTabIndex === idx ? "#fff" : "#555",
-                              fontSize: "0.85rem",
-                              fontWeight: 700,
-                              cursor: "pointer",
-                              transition: "all 0.2s ease"
-                            }}
-                          >
-                            {btn.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
+
 
                     {/* Inline Embedded Iframe */}
                     <div style={{
