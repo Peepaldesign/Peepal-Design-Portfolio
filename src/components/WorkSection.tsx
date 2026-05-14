@@ -265,46 +265,50 @@ export default function WorkSection() {
                     </div>
 
                     {/* Inline Embedded Iframe */}
-                    <div style={{
-                      width: "100%",
-                      height: "75vh",
-                      borderRadius: "16px",
-                      overflow: "hidden",
-                      border: "1px solid #e5e7eb",
-                      background: "#f9fafb",
-                      position: "relative"
-                    }}>
-                      <iframe
-                        key={customTabIndex}
-                        src={selectedProject.customButtons[customTabIndex].url}
-                        style={{ width: "100%", height: "100%", border: "none" }}
-                        allow="fullscreen; clipboard-read; clipboard-write"
-                        allowFullScreen
-                      />
+                    <div style={{ position: "relative", width: "100%", height: "75vh" }}>
+                      <div style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "16px",
+                        overflow: "hidden",
+                        border: "1px solid #e5e7eb",
+                        background: "#f9fafb",
+                        position: "absolute",
+                        top: 0,
+                        left: 0
+                      }}>
+                        <iframe
+                          key={customTabIndex}
+                          src={selectedProject.customButtons[customTabIndex].url}
+                          style={{ width: "100%", height: "100%", border: "none" }}
+                          allow="fullscreen; clipboard-read; clipboard-write"
+                          allowFullScreen
+                        />
+                      </div>
                       
                       <button
                         onClick={() => setActiveUrl(selectedProject.customButtons[customTabIndex].url)}
                         style={{
                           position: "absolute",
-                          bottom: "1rem",
-                          right: "1rem",
-                          width: "40px",
-                          height: "40px",
-                          borderRadius: "10px",
-                          background: "rgba(0,0,0,0.7)",
-                          backdropFilter: "blur(4px)",
-                          border: "1px solid rgba(255,255,255,0.2)",
+                          bottom: "1.5rem",
+                          right: "1.5rem",
+                          width: "48px",
+                          height: "48px",
+                          borderRadius: "12px",
+                          background: "#111",
+                          border: "2px solid rgba(255,255,255,0.2)",
+                          boxShadow: "0 4px 12px rgba(0,0,0,0.4)",
                           color: "white",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           cursor: "pointer",
-                          zIndex: 10,
+                          zIndex: 50,
                           transition: "all 0.2s ease"
                         }}
                         title="View Fullscreen"
                       >
-                        <Maximize size={18} />
+                        <Maximize size={20} />
                       </button>
                     </div>
                   </div>
