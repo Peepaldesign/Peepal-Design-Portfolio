@@ -30,7 +30,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="glass" style={{ 
+    <nav style={{ 
       position: "fixed", 
       top: 0, 
       left: 0, 
@@ -38,6 +38,8 @@ export default function Navbar() {
       padding: "1rem 0", 
       borderRadius: "0", 
       zIndex: 100,
+      background: "white",
+      borderBottom: "1px solid rgba(0, 0, 0, 0.05)",
       borderTop: "none",
       borderLeft: "none",
       borderRight: "none"
