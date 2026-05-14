@@ -7,20 +7,19 @@ import { projects, Project } from "@/data/projects";
 
 export default function WorkSection() {
   const [filter, setFilter] = useState<string>('All');
-  const [activeUrl, setActiveUrl] = useState<string | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [iframeLoading, setIframeLoading] = useState(true);
   const [customTabIndex, setCustomTabIndex] = useState(0);
 
   // Lock body scroll when panel is open
   useEffect(() => {
-    if (selectedProject || activeUrl) {
+    if (selectedProject) {
       document.body.style.overflow = 'hidden';
+      setCustomTabIndex(0); // Reset tab when opening new project
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
-  }, [selectedProject, activeUrl]);
+  }, [selectedProject]);
 
   const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
 
@@ -225,102 +224,72 @@ export default function WorkSection() {
                   </div>
                 </div>
 
-              {/* Action Buttons */}
+              {/* Action Tabs & Iframe */}
               <div style={{
                 maxWidth: "1100px",
                 margin: "0 auto",
                 padding: "0 2rem 4rem",
                 display: "flex",
-                flexWrap: "wrap",
-                gap: "0.75rem"
+                flexDirection: "column",
+                gap: "1.5rem"
               }}>
-                {selectedProject.customButtons ? (
-                  <div>
-                    {/* Tabs */}
-                    <div style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: "0.5rem",
-                      marginBottom: "1.5rem"
-                    }}>
-                      {selectedProject.customButtons.map((btn, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCustomTabIndex(idx)}
-                          style={{
-                            padding: "0.75rem 1.25rem",
-                            borderRadius: "12px",
-                            border: customTabIndex === idx ? "none" : "1.5px solid #e5e7eb",
-                            background: customTabIndex === idx ? "#111" : "#fff",
-                            color: customTabIndex === idx ? "#fff" : "#555",
-                            fontSize: "0.85rem",
-                            fontWeight: 700,
-                            cursor: "pointer",
-                            transition: "all 0.2s ease"
-                          }}
-                        >
-                          {btn.label}
-                        </button>
-                      ))}
+                {(() => {
+                  const projectTabs = selectedProject.customButtons || [
+                    ...(selectedProject.caseStudyUrl ? [{ label: "Case Study", url: selectedProject.caseStudyUrl }] : []),
+                    ...(selectedProject.prototypeUrl ? [{ label: "Prototype", url: selectedProject.prototypeUrl }] : [])
+                  ];
+
+                  if (projectTabs.length === 0) return null;
+
+                  return (
+                    <div>
+                      {/* Tabs */}
+                      <div style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        gap: "0.5rem",
+                        marginBottom: "1.5rem"
+                      }}>
+                        {projectTabs.map((btn, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setCustomTabIndex(idx)}
+                            style={{
+                              padding: "0.75rem 1.25rem",
+                              borderRadius: "12px",
+                              border: customTabIndex === idx ? "none" : "1.5px solid #e5e7eb",
+                              background: customTabIndex === idx ? "#111" : "#fff",
+                              color: customTabIndex === idx ? "#fff" : "#555",
+                              fontSize: "0.85rem",
+                              fontWeight: 700,
+                              cursor: "pointer",
+                              transition: "all 0.2s ease"
+                            }}
+                          >
+                            {btn.label}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Inline Embedded Iframe */}
+                      <div style={{
+                        width: "100%",
+                        height: "85vh",
+                        border: "1px solid #e5e7eb",
+                        background: "#f9fafb",
+                        position: "relative"
+                      }}>
+                        <iframe
+                          key={customTabIndex}
+                          src={projectTabs[customTabIndex]?.url}
+                          style={{ width: "100%", height: "100%", border: "none" }}
+                          allow="fullscreen; clipboard-read; clipboard-write"
+                          allowFullScreen
+                        />
+                      </div>
                     </div>
-
-
-
-                    {/* Inline Embedded Iframe */}
-                    <div style={{
-                      width: "100%",
-                      height: "85vh",
-                      border: "1px solid #e5e7eb",
-                      background: "#f9fafb",
-                      position: "relative"
-                    }}>
-                      <iframe
-                        key={customTabIndex}
-                        src={selectedProject.customButtons[customTabIndex].url}
-                        style={{ width: "100%", height: "100%", border: "none" }}
-                        allow="fullscreen; clipboard-read; clipboard-write"
-                        allowFullScreen
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    {selectedProject.caseStudyUrl && (
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setActiveUrl(selectedProject.caseStudyUrl!)}
-                        style={{
-                          flex: "1 1 200px", minWidth: "150px",
-                          padding: "1rem 1.25rem", borderRadius: "14px",
-                          background: "#111", border: "none", color: "#fff",
-                          fontSize: "1rem", fontWeight: 700,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          gap: "0.6rem", cursor: "pointer"
-                        }}
-                      >
-                        View Case Study <ExternalLink size={16} />
-                      </motion.button>
-                    )}
-                    {selectedProject.prototypeUrl && (
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setActiveUrl(selectedProject.prototypeUrl!)}
-                        style={{
-                          flex: "1 1 200px", minWidth: "150px",
-                          padding: "1rem 1.25rem", borderRadius: "14px",
-                          background: "#fff", border: "2px solid #e5e7eb", color: "#111",
-                          fontSize: "1rem", fontWeight: 700,
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          gap: "0.6rem", cursor: "pointer"
-                        }}
-                      >
-                        Visit Prototype <ExternalLink size={16} />
-                      </motion.button>
-                    )}
-                  </>
-                )}
+                  );
+                })()}
               </div>
               </div>
             </motion.div>
@@ -328,76 +297,6 @@ export default function WorkSection() {
         )}
       </AnimatePresence>
 
-      {/* Prototype Iframe - opens ON TOP of the detail panel */}
-      <AnimatePresence>
-        {activeUrl && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: "fixed",
-              top: 0, left: 0, width: "100vw", height: "100vh",
-              zIndex: 2000,
-              background: "rgba(0,0,0,0.9)",
-              backdropFilter: "blur(12px)",
-              display: "flex", flexDirection: "column"
-            }}
-          >
-            {/* Iframe top bar */}
-            <div style={{
-              display: "flex", alignItems: "center", justifyContent: "flex-end",
-              padding: "0.75rem 1.5rem",
-              background: "#111",
-              borderBottom: "1px solid rgba(255,255,255,0.08)"
-            }}>
-              <button
-                onClick={() => { setActiveUrl(null); setIframeLoading(true); }}
-                style={{
-                  width: "34px", height: "34px", borderRadius: "50%",
-                  background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)",
-                  color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-                  cursor: "pointer"
-                }}
-              >
-                <X size={16} />
-              </button>
-            </div>
-
-            {/* Iframe body */}
-            <div style={{ flex: 1, position: "relative" }}>
-              {iframeLoading && (
-                <div style={{
-                  position: "absolute", top: 0, left: 0, width: "100%", height: "100%",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                  background: "#1a1a1a", gap: "1rem", color: "white", zIndex: 5
-                }}>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    style={{
-                      width: "40px", height: "40px",
-                      border: "3px solid rgba(255,255,255,0.1)",
-                      borderTopColor: "white", borderRadius: "50%"
-                    }}
-                  />
-                  <span style={{ fontSize: "0.9rem", opacity: 0.6 }}>Loading Prototype...</span>
-                </div>
-              )}
-              <iframe
-                src={activeUrl}
-                onLoad={() => setIframeLoading(false)}
-                style={{
-                  width: "100%", height: "100%", border: "none",
-                  opacity: iframeLoading ? 0 : 1, transition: "opacity 0.3s ease"
-                }}
-                allow="fullscreen; clipboard-read; clipboard-write"
-                allowFullScreen
-              />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
