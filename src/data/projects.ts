@@ -14,6 +14,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "sap-plm",
+    title: "SAP: Product Lifecycle Management",
+    description: "Redesigning how users manage product change records inside Joule without module switching and losing situational awareness.",
+    image: "/projects/sap_plm.png",
+    category: "Enterprise & Fintech",
+    size: "small",
+    tags: ["SAP", "AI Copilot", "PLM", "Enterprise"],
+    longDescription: "SAP has an AI copilot called Joule that sits across their product suite. Within SAP IPD, their PLM platform for Food & Beverage and Chemicals industries. Joule covered three things at the time this work began: spec search by natural language, recipe search, and app navigation. Search only. No insight layer.\n\nThe work was about identifying where Joule could genuinely change how users experience enterprise PLM not as a smarter search bar, but as an agent that understands domain workflows end to end. The Intelligent Change Record was the highest-impact opportunity identified through this mapping.",
+    customButtons: [
+      { label: "Case Study", url: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_UX-Case-Studies?page-id=3362%3A29597&node-id=3365-29640&p=f&viewport=284%2C88%2C0.65&scaling=scale-down&content-scaling=fixed&embed-host=share" },
+      { label: "View Prototype", url: "https://embed.figma.com/proto/Av3UfjsnHD8etkVpBQzmtc/canvas?page-id=0%3A1&node-id=630-81926&viewport=-9560%2C-4812%2C0.15&scaling=scale-down&content-scaling=fixed&starting-point-node-id=630%3A81926&embed-host=share" }
+    ]
+  },
+  {
     id: "sap-integration",
     title: "SAP Integration",
     description: "Advanced platform for managing, monitoring, and connecting complex API systems.",
