@@ -14,6 +14,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "ansys-fluent",
+    title: "Ansys Fluent",
+    description: "This redesigned Ansys Fluent workflow simplifies complex CFD setups through a modern, intuitive user experience.",
+    image: "/projects/ansys_fluent.png",
+    category: "Industrial & Agri-Tech",
+    size: "small",
+    tags: ["CFD", "Simulation", "Engineering"],
+    longDescription: "Ansys Fluent is industry-leading, general-purpose computational fluid dynamics (CFD) software used to simulate, analyze, and optimize fluid flow, heat transfer, and chemical reactions. It allows engineers to digitally test how liquids and gases behave around or within complex designs without building physical prototypes.",
+    customButtons: [
+      { label: "View Prototype", url: "https://embed.figma.com/proto/t37PvHYZ9myLVtWmpr88BM/01_UX-Case-Studies?node-id=3484-29678&viewport=6697%2C683%2C0.7&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3484%3A29678&page-id=3484%3A29597&embed-host=share" }
+    ]
+  },
+  {
     id: "sap-plm",
     title: "SAP: Product Lifecycle Management",
     description: "Redesigning how users manage product change records inside Joule without module switching and losing situational awareness.",
